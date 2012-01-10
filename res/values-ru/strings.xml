@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Пятничный отсчет</string>
+    
+    <string name="configuration_ok_button">Ok</string>
+    <string name="configuration_cancel_button">Отмена</string>
+    <string name="configuration_when_start_friday">Когда у Вас начинается пятница ?</string>    
+
+    <string name="friday_time_left">До пятницы осталось </string>
+    <string name="friday_has_come">пятница пришла!</string>
+
+    <string name="plural_day0">д</string>
+    <string name="plural_day1">ень</string>
+    <string name="plural_day2">ня</string>
+    <string name="plural_day3">ней</string>
+
+    <string name="plural_hour0">час</string>
+    <string name="plural_hour1"></string>
+    <string name="plural_hour2">а</string>
+    <string name="plural_hour3">ов</string>
+    
+    <string name="plural_min0">минут</string>
+    <string name="plural_min1">а</string>
+    <string name="plural_min2">ы</string>
+    <string name="plural_min3"></string>
+
+	<string name="error_external_storage">Ошибка доступа к SD карте</string>
+	<string name="error_write_storage">Ошибка чтения с внешнего накопителя</string>
+	<string name="error_read_storage">Ошибка записи на внешний накопитель</string>
+	<string name="error_connection">Ошибка при передаче данных</string>
+	<string name="error_connection_status">Ошибка при попытке скачать файл</string> 
+
+    <string name="yes_button">Да</string>
+    <string name="no_button">Нет</string>
+
+    <string name="missing_content_dialog_title">Отсутствуют данные</string>
+    <string name="missing_content_dialog_message">Вы хотите скачать несколько недостающих картинок?</string>
+    <string name="missing_content_progress">Загрузка изображений</string>
+    
+    <string name="image_rating_changed">Рейтинг изображения изменен</string>
+    		
+</resources>

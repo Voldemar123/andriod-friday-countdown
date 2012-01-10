@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Friday countdown</string>
+    
+    <string name="configuration_ok_button">Ok</string>
+    <string name="configuration_cancel_button">Cancel</string>
+    <string name="configuration_when_start_friday">When you start Friday?</string>
+    
+    <string name="friday_time_left">Until friday left </string>
+    <string name="friday_has_come">Friday has come!</string>
+        
+    <string name="plural_day0">day</string>
+    <string name="plural_day1"></string>
+    <string name="plural_day2">s</string>
+    <string name="plural_day3">s</string>
+
+    <string name="plural_hour0">hour</string>
+    <string name="plural_hour1"></string>
+    <string name="plural_hour2">s</string>
+    <string name="plural_hour3">s</string>
+    
+    <string name="plural_min0">minute</string>
+    <string name="plural_min1"></string>
+    <string name="plural_min2">s</string>
+    <string name="plural_min3">s</string>
+
+	<string name="error_external_storage">error_external_storage</string>
+	<string name="error_write_storage">error_write_storage</string>
+	<string name="error_read_storage">error_read_storage</string>
+	<string name="error_connection">error_connection</string>
+	<string name="error_connection_status">error_connection_status</string> 
+	
+    <string name="yes_button">Yes</string>
+    <string name="no_button">No</string>
+		
+    <string name="missing_content_dialog_title">Missed content</string>
+    <string name="missing_content_dialog_message">Do you want to download a few missing pictures?</string>
+    <string name="missing_content_progress">Pictures downloading</string>
+        
+    <string name="image_rating_changed">Picture rating changed</string>
+    
+</resources>
