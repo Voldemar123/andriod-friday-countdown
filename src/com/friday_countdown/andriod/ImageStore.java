@@ -3,7 +3,6 @@ package com.friday_countdown.andriod;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,6 +19,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
 import android.util.Log;
 
 /**
@@ -31,18 +31,16 @@ public class ImageStore extends BaseStore {
 	
 	private static final String TAG = "ImageStore";
 	
-//	private Context mContext;
 	private CountdownDatabaseHelper imagesData;
-	
 	protected ArrayList<String> missedImages;
-	
 	public FridayImage fridayImage;
-	
+	private String sImageHtml;
+	private Context mContext;
 	
 	public ImageStore(Context context) {
 		super();
 		
-//		mContext = context;
+		mContext = context;
 		imagesData = new CountdownDatabaseHelper(context);
 		
 //		fillDatabase();
@@ -115,7 +113,11 @@ public class ImageStore extends BaseStore {
 		SQLiteDatabase db = imagesData.getReadableDatabase();
 		
 	    Cursor cursor = db.query(CountdownDatabaseHelper.IMAGES_TABLE, 
-	    		new String[] { CountdownDatabaseHelper.KEY_ROWID, CountdownDatabaseHelper.NAME, CountdownDatabaseHelper.RATING }, 
+	    		new String[] { CountdownDatabaseHelper.KEY_ROWID, 
+	    						CountdownDatabaseHelper.NAME,
+	    						CountdownDatabaseHelper.WIDTH,
+	    						CountdownDatabaseHelper.HEIGHT,
+	    						CountdownDatabaseHelper.RATING }, 
 	    		null, null, null, null, null);
 	    
 	    cursor.moveToFirst();
@@ -124,7 +126,9 @@ public class ImageStore extends BaseStore {
         	
         	image.id = cursor.getInt(0);
         	image.name = cursor.getString(1);
-        	image.rating = cursor.getFloat(2);
+        	image.width = cursor.getInt(2);
+        	image.height = cursor.getInt(3);
+        	image.rating = cursor.getFloat(4);
         	
         	images.add(image);
         	
@@ -136,9 +140,23 @@ public class ImageStore extends BaseStore {
 	    return images;
 	}
 	
+	private boolean checkInternetConnection() {
+		Log.d(TAG, "Test for connection ");
+		
+	    ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+	    return (cm.getActiveNetworkInfo() != null
+	            && cm.getActiveNetworkInfo().isAvailable()
+	            && cm.getActiveNetworkInfo().isConnected());
+	}
+	
 // download source image and save it to the application resources	
 	public void downloadImage(String imageName) throws LocalizedException {
 		Log.d(TAG, "Download image " + imageName);
+		
+		if ( !checkInternetConnection() ) {
+	        Log.e(TAG, "Internet connection not present");
+	        throw new LocalizedException( R.string.error_connection_not_present );
+		}
 
 		File file = new File( Constants.APP_CACHE_PATH + imageName );
 		
@@ -178,7 +196,7 @@ public class ImageStore extends BaseStore {
 	}
 	
 // select random image based on user rating	
-	public void selectRandomImage() {
+	public void loadRandomImage() {
 		Log.d(TAG, "Get random image");
 		
 		ArrayList<FridayImage> pool = new ArrayList<FridayImage>();
@@ -199,36 +217,89 @@ public class ImageStore extends BaseStore {
 		Collections.shuffle(pool);
 		
 		fridayImage = pool.get( new Random().nextInt( pool.size() ) );
+		
+		checkImageDimensions();
 	}
 
 // update user rating for image	
-	public boolean setRating(float rating) {
+	public void setRating(float rating) {
+		Log.d(TAG, "Update random rating #" + fridayImage.id + " : " + rating);
+		
 		SQLiteDatabase db = imagesData.getWritableDatabase();
 
 		ContentValues args = new ContentValues();
 		
 		args.put(CountdownDatabaseHelper.RATING, rating);
 
-		return db.update(CountdownDatabaseHelper.IMAGES_TABLE, 
+		db.update(CountdownDatabaseHelper.IMAGES_TABLE, 
 				args,
 				CountdownDatabaseHelper.KEY_ROWID + "=" + fridayImage.id, 
-				null) > 0;
+				null);
+		
+		db.close();
 	}
 
-// get image as picture object	
-	public Bitmap getPicture() {
+// update image dimension
+	public void setPictureDimensions(int width, int height) {
+		Log.d(TAG, "Update picture width = " + width + ", height = " + height);
+		
+		SQLiteDatabase db = imagesData.getWritableDatabase();
+
+		ContentValues args = new ContentValues();
+
+		args.put(CountdownDatabaseHelper.WIDTH, width);
+		args.put(CountdownDatabaseHelper.HEIGHT, height);
+
+		db.update(CountdownDatabaseHelper.IMAGES_TABLE, args,
+				CountdownDatabaseHelper.KEY_ROWID + "=" + fridayImage.id, null);
+
+		db.close();
+	}
+	
+// check picture dimensions	
+	private void checkImageDimensions() {
 		Log.d(TAG, "Get picture object " + fridayImage.name);
+		
+		if ( fridayImage.width != 0 && fridayImage.height != 0 )
+			return;
 		
 		try {
 			FileInputStream fis = new FileInputStream( Constants.APP_CACHE_PATH + fridayImage.name );
 			BufferedInputStream bis = new BufferedInputStream(fis);
             
-			return BitmapFactory.decodeStream(bis);
+			Bitmap img = BitmapFactory.decodeStream(bis);
 			
-		} catch (FileNotFoundException e) {
-			Log.e(TAG, "File not found : " + e.getMessage(), e);
+			fridayImage.width = img.getWidth();
+			fridayImage.height = img.getHeight();
+			
+			bis.close();
+			fis.close();
+			
+			setPictureDimensions(fridayImage.width, fridayImage.height);
+			
+		} catch (IOException e) {
+			Log.e(TAG, "Picture load problem : " + e.getMessage(), e);
 		}
+	}
 
-		return null;
+// return HTML document contains Friday picture	
+	public String getHtml() {
+		if ( sImageHtml != null )
+			return sImageHtml;
+		
+		StringBuffer html = new StringBuffer();
+		
+		html.append("<html><body style='margin:0;padding:0'>");
+		html.append("<img src='");
+		html.append("file:///");
+		html.append(Constants.APP_CACHE_PATH);
+		html.append(fridayImage.name);
+		html.append("' width='");
+		html.append(fridayImage.width);
+		html.append("' height='");
+		html.append(fridayImage.height);
+		html.append("'></body></html>");
+		
+		return sImageHtml = html.toString();
 	}
 }

@@ -8,25 +8,27 @@
     <uses-sdk android:minSdkVersion="8" />
     
     <uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     
     <application
-        android:icon="@android:drawable/ic_menu_myplaces"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:debuggable="true" >
+         >
+         
+<!-- android:debuggable="true" -->        
 
-<!-- 
-		    android:configChanges="keyboardHidden|orientation"
- -->        
 		<activity android:name=".ShowImageActivity"
+		    android:configChanges="orientation"
 		    android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
 			android:label="@string/app_name">
 
+<!-- 		    
 		    <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
+ -->
         </activity>
          
         <activity

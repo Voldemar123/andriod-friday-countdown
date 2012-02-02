@@ -15,12 +15,11 @@ import android.util.Log;
 public class CountdownDatabaseHelper extends SQLiteOpenHelper {
 
 	private static final String TAG = "CountdownDatabaseHelper";
-	private Context mContext;
 	
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 2;
 	private static final String DATABASE_NAME = "data.db";
 	
-	// Table name
+// Table name
 	public static final String IMAGES_TABLE = "images";
 
 // Fields	
@@ -28,17 +27,19 @@ public class CountdownDatabaseHelper extends SQLiteOpenHelper {
 	public static final String NAME = "name";
 	public static final String RATING = "rating";
 	public static final String CAME_FROM_USER = "cameFromUser";
+	public static final String WIDTH = "width";
+	public static final String HEIGHT = "height";
 	
 	private static final String DATABASE_CREATE = "CREATE TABLE " + IMAGES_TABLE + " (" + 
 			KEY_ROWID +" integer primary key autoincrement, " + 
 			NAME + " text not null, " + 
 			RATING + " float not null, " +
+			WIDTH + " int, " +
+			HEIGHT + " int, " +
 			CAME_FROM_USER + " boolean not null );";
 
 	CountdownDatabaseHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
-		mContext = context;
 	}
 
 	@Override
@@ -57,9 +58,8 @@ public class CountdownDatabaseHelper extends SQLiteOpenHelper {
 		
 		ContentValues values = new ContentValues();
 
-		String[] images = mContext.getResources().getStringArray(R.array.image_names);
-		Log.d(TAG, "Found images " + images.length);
-		for (String imageName : images) {
+		Log.d(TAG, "Found images " + Constants.IMAGE_NAMES.length);
+		for (String imageName : Constants.IMAGE_NAMES) {
 			Log.d(TAG, "Fill source image " + imageName);
 			
 			values.put(NAME, imageName);

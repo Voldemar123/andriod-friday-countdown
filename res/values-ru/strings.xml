@@ -29,6 +29,7 @@
 	<string name="error_read_storage">Ошибка записи на внешний накопитель</string>
 	<string name="error_connection">Ошибка при передаче данных</string>
 	<string name="error_connection_status">Ошибка при попытке скачать файл</string> 
+	<string name="error_connection_not_present">Отсутствует Интернет соединение</string>
 
     <string name="yes_button">Да</string>
     <string name="no_button">Нет</string>

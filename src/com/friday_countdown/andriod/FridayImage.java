@@ -11,5 +11,6 @@ public class FridayImage {
 	String name;
 	float rating;
 	boolean cameFromUser;
+	int width, height;
 	
 }

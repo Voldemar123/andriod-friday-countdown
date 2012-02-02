@@ -6,7 +6,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,7 +30,6 @@ public class ShowImageActivity extends Activity {
 	private RatingBar mRatingbar;
 	private ImageStore mImageStore;
 	private ProgressDialog mProgressDialog;
-	private Display mDisplay;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,8 +38,6 @@ public class ShowImageActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_image);
 
-        mDisplay = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay(); 
-        
         mWebView = (WebView) findViewById(R.id.friday_image_view);
         mWebView.setBackgroundColor(color.black);
         
@@ -55,8 +52,10 @@ public class ShowImageActivity extends Activity {
         	
 			if ( !mImageStore.checkIsContentExists() )
 				downloadMissingContent(mImageStore);
-			else
+			else {
+				mImageStore.loadRandomImage();
 				initializeUI();
+			}
 			
 		} catch (LocalizedException e) {
 			Toast.makeText( getApplicationContext(), 
@@ -142,8 +141,10 @@ public class ShowImageActivity extends Activity {
              
              mProgressDialog.dismiss();
              
-             if (result)             
+             if (result) {
+            	 mImageStore.loadRandomImage();
             	 initializeUI();
+             }
              else
             	 Toast.makeText(getApplicationContext(),
             			 e.getString( getApplicationContext() ), 
@@ -152,79 +153,37 @@ public class ShowImageActivity extends Activity {
         }
     }
 	
-//	@Override
-//	public Object onRetainNonConfigurationInstance() {
-//		Log.i("ShowImageActivity", "onRetainNonConfigurationInstance");
-//		
-//		Toast.makeText(this, "onRetainNonConfigurationInstance", Toast.LENGTH_SHORT).show();
-//	    return null;
-//	}
-	
-	
-//	@Override
-//	public void onConfigurationChanged(Configuration newConfig) {
-//		Log.i("ShowImageActivity", "onConfigurationChanged");
-//		
-//	    super.onConfigurationChanged(newConfig);
-//
-//    	setContentView(R.layout.show_image);
-//    	initializeUI();
-//	    
-//	    // Checks the orientation of the screen
-//	    if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-//	        Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
-//	    } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-//	        Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
-//	    }
-//	}	
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		Log.i(TAG, "Configuration changed " + newConfig.orientation);
+		
+	    super.onConfigurationChanged(newConfig);
+
+	    setWebViewOrientationScale();
+	}	
 	
     private void initializeUI() {
-    	Log.i(TAG, "initializeUI");
-    	
-    	mImageStore.selectRandomImage();
+    	Log.d(TAG, "Initialize app UI");
     	
     	if (mImageStore.fridayImage == null)
     		return;
     	
     	mWebView.getSettings().setSupportZoom(true);
-//    	mWebView.getSettings().setLayoutAlgorithm(LayoutAlgorithm.NORMAL);
-
-    	mWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+    	mWebView.getSettings().setBuiltInZoomControls(true);
+    	
     	mWebView.setScrollbarFadingEnabled(true);
+    	mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 
-//    	mWebView.getSettings().setLoadWithOverviewMode(true);
-//    	mWebView.getSettings().setUseWideViewPort(true);
-
-//        String imagePath = "3309579_person.png";
-//        String html = "<html><head></head><body><img src='"+ imagePath + "'></body></html>";
-        
-    	mWebView.loadUrl( "file:///"+ Constants.APP_CACHE_PATH + mImageStore.fridayImage.name );
-//        webview.loadData( html, "text/html", "UTF-8" );
-//        webview.loadDataWithBaseURL("file:///"+ APP_CACHE_PATH +"/a87115/",
-//                html,
-//                "text/html",
-//                "UTF-8",
-//                "");
-        
     	mWebView.setPadding(0, 0, 0, 0);
     	
-    	setWebViewScale();
-    	
-//    	mWebView.setWebViewClient(new WebViewClient() {
-//            @Override
-//            public void onPageFinished(WebView webView, String url) {
-//                super.onPageFinished(webView, url);
-//                
-//                mWebView.setInitialScale( calcWebViewScale() );
-//            }
-//        });
-    	
+    	setWebViewOrientationScale();
     	
     	mRatingbar = (RatingBar) findViewById(R.id.image_rating);
     	mRatingbar.setRating(mImageStore.fridayImage.rating);
         
     	mRatingbar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+
             	mImageStore.setRating(rating);
             	
                 Toast.makeText(ShowImageActivity.this, 
@@ -234,35 +193,37 @@ public class ShowImageActivity extends Activity {
         });        
     }
   
-    private void setWebViewScale() {
-    	Log.d(TAG, "Scale picture to web view");
+    private void setWebViewOrientationScale() {
+    	Log.d(TAG, "Scale picture depend device orientation");
     	
-    	Bitmap picture = mImageStore.getPicture();
-    	if ( picture == null )
+    	if (mImageStore.fridayImage == null)
     		return;
     	
-    	int width = mDisplay.getWidth(); 
-        int height = mDisplay.getHeight(); 
+    	Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+    	
+    	int width = display.getWidth(); 
+        int height = display.getHeight(); 
 
-        Log.i(TAG, "Display width " + width);
-        Log.i(TAG, "Display height " + height);
+        Log.d(TAG, "Display width " + width);
+        Log.d(TAG, "Display height " + height);
 
-        int picWidth = picture.getWidth();
-        int picHeight = picture.getHeight();
+        int picWidth = mImageStore.fridayImage.width;
+        int picHeight = mImageStore.fridayImage.height;
         
-        Log.i(TAG, "Picture width " + picWidth);
-        Log.i(TAG, "Picture height " + picHeight);
+        Log.d(TAG, "Picture width " + picWidth);
+        Log.d(TAG, "Picture height " + picHeight);
 
-// TODO: rewrite for rotate device        
-        
+// scale web view depend of rotate device        
         Double val = 1d;
-        if ( picHeight > height )
-        	val = new Double(height) / new Double(picHeight);
 
+		if (picHeight > height)
+			val = new Double(height) / new Double(picHeight);
+        
     	val = val * 100d;
     	Log.i(TAG, "Scale to " + val);
     
     	mWebView.setInitialScale( val.intValue() );
+		mWebView.loadDataWithBaseURL("/", mImageStore.getHtml(), "text/html", "UTF-8", null);
     }
 	
 }
