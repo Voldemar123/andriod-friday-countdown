@@ -47,9 +47,9 @@ public class CountdownService extends Service {
 		int goalMinute = prefs.getInt(Constants.PREF_GOAL_MINUTE + appWidgetId, 0);
 		
 		// compute the time left
-		FridayTimeLeft timeLeft = new FridayTimeLeft(goalHour, goalMinute, self);
+		FridayTimeLeft timeLeft = new FridayTimeLeft(goalHour, goalMinute);
 		
-		if ( timeLeft.isFridayHasCome() ) {
+		if ( timeLeft.isFridayHasCome ) {
 			remoteView.setViewVisibility (R.id.title, View.GONE);
 			remoteView.setViewVisibility (R.id.time_left, View.GONE);
 			remoteView.setViewVisibility (R.id.title_has_come, View.VISIBLE);
@@ -59,7 +59,7 @@ public class CountdownService extends Service {
 			remoteView.setViewVisibility (R.id.time_left, View.VISIBLE);
 			remoteView.setViewVisibility (R.id.title_has_come, View.GONE);
 
-			remoteView.setTextViewText( R.id.time_left, timeLeft.getMessage() );
+			remoteView.setTextViewText( R.id.time_left, timeLeft.getMessage(self) );
 		}
 		
 //		remoteView.setOnClickPendingIntent(R.id.plusbutton, CountdownWidget
