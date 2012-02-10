@@ -15,8 +15,8 @@
 а также добавить в коллекцю свою собственную пятничную картинку возможно на 
 [странице проекта в Facebook.com](http://www.facebook.com/groups/346930055333462/)  
 
-![Friday countdown widget](https://github.com/Voldemar123/andriod-friday-countdown/blob/master/_design/screenshot_small2.jpg) 
-&nbsp;&nbsp; ![Friday picture](https://github.com/Voldemar123/andriod-friday-countdown/blob/master/_design/screenshot_small1.jpg)
+![Friday countdown widget](https://github.com/Voldemar123/andriod-friday-countdown/raw/master/_design/screenshot_small2.jpg) 
+&nbsp;&nbsp; ![Friday picture](https://github.com/Voldemar123/andriod-friday-countdown/raw/master/_design/screenshot_small1.jpg)
 
 Friday ... All people are waiting for when it finally comes to an end the work week and the time will come for the long-awaited vacation.
 It does not matter whether the work brings pleasure or want to go home as soon as possible.
