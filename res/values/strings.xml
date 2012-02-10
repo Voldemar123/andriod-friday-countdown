@@ -7,7 +7,7 @@
     <string name="configuration_cancel_button">Cancel</string>
     <string name="configuration_when_start_friday">When you start Friday?</string>
     
-    <string name="friday_time_left">Until friday left </string>
+    <string name="friday_time_left">Until Friday left</string>
     <string name="friday_has_come">Friday has come!</string>
         
     <string name="plural_day0">day</string>

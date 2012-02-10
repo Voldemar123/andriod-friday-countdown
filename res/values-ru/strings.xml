@@ -6,8 +6,8 @@
     <string name="configuration_cancel_button">Отмена</string>
     <string name="configuration_when_start_friday">Когда у Вас начинается пятница ?</string>    
 
-    <string name="friday_time_left">До пятницы осталось </string>
-    <string name="friday_has_come">пятница пришла!</string>
+    <string name="friday_time_left">До пятницы осталось</string>
+    <string name="friday_has_come">Пятница пришла!</string>
 
     <string name="plural_day0">д</string>
     <string name="plural_day1">ень</string>
