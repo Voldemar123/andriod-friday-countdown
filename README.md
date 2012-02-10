@@ -1,4 +1,4 @@
-# Android виджет - Пятничный отсчет
+# Android виджет - Пятничный отсчет (Friday countdown)
 
 Пятница... Все люди ждут когда уже наконец придет конец рабочей недели и настанет время для долгожданного отдыха.
 Не важно, приносит ли работа удовольствие или хочется поскорее уйти домой.
@@ -15,6 +15,8 @@
 а также добавить в коллекцю свою собственную пятничную картинку возможно на 
 [странице проекта в Facebook.com](http://www.facebook.com/groups/346930055333462/)  
 
+![Friday countdown widget](https://github.com/Voldemar123/andriod-friday-countdown/raw/master/_design/screenshot_small1.gpg) 
+&nbsp;&nbsp; ![Friday picture](https://github.com/Voldemar123/andriod-friday-countdown/raw/master/_design/screenshot_small2.gpg)
 
 Friday ... All people are waiting for when it finally comes to an end the work week and the time will come for the long-awaited vacation.
 It does not matter whether the work brings pleasure or want to go home as soon as possible.
@@ -34,9 +36,6 @@ and add to the collection of his own image possible on Friday
 
 ## Автор
 [Владимир Максименко] E-Mail: v.maksy@gmail.com
-
-![Friday countdown widget](https://github.com/Voldemar123/andriod-friday-countdown/raw/master/design/screenshot_small1.gpg) 
-&nbsp;&nbsp; ![Friday picture](https://github.com/Voldemar123/andriod-friday-countdown/raw/master/design/screenshot_small2.gpg)
 
 ## Market link
 
