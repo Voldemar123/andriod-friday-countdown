@@ -7,6 +7,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +33,10 @@ public class ShowImageActivity extends Activity {
 	private ImageStore mImageStore;
 	private ProgressDialog mProgressDialog;
 	
+	private SensorManager mSensorManager;
+	private ShakeEventListener mSensorListener;
+
+	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
 		Log.d(TAG, "Create sctivity");
@@ -38,6 +44,22 @@ public class ShowImageActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_image);
 
+        mSensorListener = new ShakeEventListener();
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mSensorManager.registerListener(mSensorListener,
+            mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+            SensorManager.SENSOR_DELAY_UI);
+
+        mSensorListener.setOnShakeListener(new ShakeEventListener.OnShakeListener() {
+// load next random image on shake device
+			public void onShake() {
+				Log.d(TAG, "Shake detected, load new image");
+
+				loadImage();
+				setWebViewOrientationScale();
+			}
+        });
+        
         mWebView = (WebView) findViewById(R.id.friday_image_view);
         mWebView.setBackgroundColor(color.black);
         
@@ -176,11 +198,8 @@ public class ShowImageActivity extends Activity {
 
     	mWebView.setPadding(0, 0, 0, 0);
     	
-    	setWebViewOrientationScale();
-    	
     	mRatingbar = (RatingBar) findViewById(R.id.image_rating);
-    	mRatingbar.setRating(mImageStore.fridayImage.rating);
-        
+
     	mRatingbar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
 
@@ -191,6 +210,8 @@ public class ShowImageActivity extends Activity {
                 		Toast.LENGTH_SHORT).show();
             }
         });        
+
+    	setWebViewOrientationScale();
     }
   
     private void setWebViewOrientationScale() {
@@ -224,6 +245,22 @@ public class ShowImageActivity extends Activity {
     
     	mWebView.setInitialScale( val.intValue() );
 		mWebView.loadDataWithBaseURL("/", mImageStore.getHtml(), "text/html", "UTF-8", null);
+		
+		mRatingbar.setRating(mImageStore.fridayImage.rating);
     }
 	
+    @Override
+    protected void onResume() {
+      super.onResume();
+
+      mSensorManager.registerListener(mSensorListener,
+          mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+          SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    protected void onStop() {
+      mSensorManager.unregisterListener(mSensorListener);
+      super.onStop();
+    }
 }
