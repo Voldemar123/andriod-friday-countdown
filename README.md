@@ -39,7 +39,7 @@ and add to the collection of his own image possible on Friday you can on
 
 [Android Market link](https://market.android.com/details?id=com.friday_countdown.andriod)
 
-(http://qrcode.kaywa.com/img.php?s=8&d=market%3A%2F%2Fdetails%3Fid%3Dcom.friday_countdown.andriod "Android Market Friday countdown")
+![Android Market link](http://qrcode.kaywa.com/img.php?s=8&d=market%3A%2F%2Fdetails%3Fid%3Dcom.friday_countdown.andriod)
 
-(https://github.com/Voldemar123/andriod-friday-countdown/raw/master/_design/logo_big.png)
+![Friday countdown logo](https://github.com/Voldemar123/andriod-friday-countdown/raw/master/_design/logo_big.png)
 
