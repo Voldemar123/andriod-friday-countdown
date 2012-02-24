@@ -6,9 +6,13 @@
     <string name="configuration_ok_button">Ok</string>
     <string name="configuration_cancel_button">Cancel</string>
     <string name="configuration_when_start_friday">When you start Friday?</string>
+    <string name="configuration_notify_me">Notify me</string>
     
     <string name="friday_time_left">Until Friday left</string>
     <string name="friday_has_come">Friday has come!</string>
+    
+    <string name="action_visit_project_page">Visit the project page on Facebook.</string>
+    <string name="action_enjoy_picture">Enjoy Friday\'s picture.</string>
         
     <string name="plural_day0">day</string>
     <string name="plural_day1"></string>

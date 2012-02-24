@@ -9,6 +9,10 @@ public class Constants {
 		Environment.getExternalStorageDirectory().getAbsolutePath() + 
 		"/Android/data/" + APP_PREFS_NAME + "/cache/";
 	
+	public static final String APP_FACEBOOK_GROUP = "346930055333462";
+	public static final String FACEBOOK_GROUP_LINK_NATIVE = "fb://group/" + Constants.APP_FACEBOOK_GROUP;
+	public static final String FACEBOOK_GROUP_LINK_HTTP = "http://m.facebook.com/groups/" + Constants.APP_FACEBOOK_GROUP;
+	
 // localhost 	
 //	public static final String APP_SOURCE_IMAGES_URL = "http://10.0.2.2/friday_images/";
 // GitHub project storage 	
@@ -16,6 +20,7 @@ public class Constants {
 	
 	protected static final String PREF_GOAL_HOUR = "goal_hour";
 	protected static final String PREF_GOAL_MINUTE = "goal_minute";
+	protected static final String PREF_NOTIFY_ME = "notify_me";
 	
 // Friday pictures names list	
 	protected static final String IMAGE_NAMES[] = {

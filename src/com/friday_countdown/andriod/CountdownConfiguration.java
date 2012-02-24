@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TimePicker;
 
 public class CountdownConfiguration extends Activity {
@@ -18,6 +19,7 @@ public class CountdownConfiguration extends Activity {
 	private Context self = this;
 	private int mAppWidgetId;
 	private TimePicker mTimePicker;
+	private CheckBox mCheckBox;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,9 @@ public class CountdownConfiguration extends Activity {
 		mTimePicker.setCurrentHour(19);
 		mTimePicker.setCurrentMinute(0);
 		
+		mCheckBox = (CheckBox) findViewById(R.id.notify_me);
+		mCheckBox.setChecked(true);
+		
 		// the OK button
 		Button ok = (Button) findViewById(R.id.ok_button);
 		ok.setOnClickListener(new OnClickListener() {
@@ -55,6 +60,7 @@ public class CountdownConfiguration extends Activity {
 				
 				edit.putInt(Constants.PREF_GOAL_HOUR + mAppWidgetId, mTimePicker.getCurrentHour());
 				edit.putInt(Constants.PREF_GOAL_MINUTE + mAppWidgetId, mTimePicker.getCurrentMinute());
+				edit.putBoolean(Constants.PREF_NOTIFY_ME + mAppWidgetId, mCheckBox.isChecked());
 				
 				edit.commit();
 

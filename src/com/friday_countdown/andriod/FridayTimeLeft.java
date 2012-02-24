@@ -1,6 +1,8 @@
 package com.friday_countdown.andriod;
 
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -14,34 +16,50 @@ public class FridayTimeLeft {
 	private final int DAY = 24 * HOUR;
 
 	private Date mCurDate, mStartNextFriday;
+	private Calendar mCal;
+
 	public boolean isFridayHasCome; 
-	
-	public FridayTimeLeft(int goalHour, int goalMinute) {
-		Calendar cal = GregorianCalendar.getInstance();
+	public boolean isFridayStart; 
 
-		mCurDate = cal.getTime();
+	public FridayTimeLeft() {
+		mCal = GregorianCalendar.getInstance();
+	}
+
+	public FridayTimeLeft(Date today) {
+		mCal = GregorianCalendar.getInstance();
+		mCal.setTime(today);
+	}
 		
-		cal.set(GregorianCalendar.DAY_OF_WEEK, Calendar.FRIDAY);
-		cal.set(GregorianCalendar.HOUR_OF_DAY, goalHour);
-		cal.set(GregorianCalendar.MINUTE, goalMinute);
-		cal.set(GregorianCalendar.SECOND, 0);
-
-		Date startFriday = cal.getTime();
-
-		cal.set(GregorianCalendar.DAY_OF_WEEK, Calendar.SATURDAY);
-		cal.set(GregorianCalendar.HOUR_OF_DAY, 0);
-		cal.set(GregorianCalendar.MINUTE, 0);
+	public void calc(int goalHour, int goalMinute) {
+		mCurDate = mCal.getTime();
 		
-		Date endFriday = cal.getTime();
+		mCal.set(GregorianCalendar.DAY_OF_WEEK, Calendar.FRIDAY);
+		mCal.set(GregorianCalendar.HOUR_OF_DAY, goalHour);
+		mCal.set(GregorianCalendar.MINUTE, goalMinute);
+		mCal.set(GregorianCalendar.SECOND, 0);
+
+		Date startFriday = mCal.getTime();
+
+// time to start Friday		
+		if ( mCurDate.getDay() == startFriday.getDay() && 
+				mCurDate.getHours() == startFriday.getHours() &&
+				mCurDate.getMinutes() == startFriday.getMinutes() )
+			isFridayStart = true;
+		
+		mCal.set(GregorianCalendar.DAY_OF_WEEK, Calendar.SATURDAY);
+		mCal.set(GregorianCalendar.HOUR_OF_DAY, 0);
+		mCal.set(GregorianCalendar.MINUTE, 0);
+		
+		Date endFriday = mCal.getTime();
 		
 		isFridayHasCome = mCurDate.after(startFriday) && mCurDate.before(endFriday);
 		
 // count next Friday		
-		cal.setTime(startFriday);
-		if ( mCurDate.after( cal.getTime() ) )
-			cal.add( GregorianCalendar.WEEK_OF_YEAR, 1 );
+		mCal.setTime(startFriday);
+		if ( mCurDate.after( mCal.getTime() ) )
+			mCal.add( GregorianCalendar.WEEK_OF_YEAR, 1 );
 		
-		mStartNextFriday = cal.getTime();
+		mStartNextFriday = mCal.getTime();
 	}
 
 	public String getMessage(Context context) {
@@ -54,15 +72,13 @@ public class FridayTimeLeft {
 				return context.getString(R.string.friday_has_come);
 		}
 		else {
-//			msg = context.getString(R.string.friday_time_left);
-
 			long left = mStartNextFriday.getTime() - mCurDate.getTime();
 
-			int days = (int) Math.floor(left / DAY);
+			int days = (int) Math.ceil(left / DAY);
             left = left - days * DAY;
-            int hours = (int) Math.floor(left / HOUR);
+            int hours = (int) Math.ceil(left / HOUR);
             left = left - hours * HOUR;
-            int mins = (int) Math.floor(left / MINUTE);
+            int mins = (int) Math.ceil(left / MINUTE) + 1;
             
 // left days
 			if ( days > 0 )
@@ -134,12 +150,14 @@ public class FridayTimeLeft {
 	}	
 	
 	public static void main(String[] args) throws ParseException {
-		FridayTimeLeft fr = new FridayTimeLeft(19, 0);
+		final DateFormat dfDate = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		Date curDate = dfDate.parse("2012-02-24 19:01");
 		
-//		final DateFormat dfDate = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-//		fr.mCurDate = dfDate.parse("2012-01-22 12:59");
+		FridayTimeLeft fr = new FridayTimeLeft(curDate);
+		fr.calc(19, 0);
 		
 		System.out.println(fr.mCurDate);
+		System.out.println(fr.isFridayStart);
 		System.out.println(fr.isFridayHasCome);
 		System.out.println(fr.getMessage(null));
 		

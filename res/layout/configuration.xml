@@ -24,8 +24,16 @@
 
             <TimePicker
                 android:id="@+id/friday_start_time"
+                android:layout_marginBottom="20dip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
+            <CheckBox
+                android:id="@+id/notify_me"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/configuration_notify_me" />
+
         </LinearLayout>
     </ScrollView>
 

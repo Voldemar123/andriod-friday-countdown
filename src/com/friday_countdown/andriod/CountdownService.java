@@ -1,10 +1,17 @@
 package com.friday_countdown.andriod;
 
+import java.util.Random;
+
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.IBinder;
 import android.util.Log;
@@ -17,24 +24,25 @@ public class CountdownService extends Service {
 	public static final String PLUS = "plus";
 	public static final long MODIFY = 86400000;
 
+	private Context mContext;
+	
+	private static final String TAG = "CountdownService";
+	
 	@Override
 	public void onStart(Intent intent, int startId) {
-		Log.i("CountdownService", "onStart "+startId);
-		Log.i("CountdownService", "command "+intent.getAction());
-		
 //		String command = intent.getAction();
-		Context self = getApplicationContext();
+		mContext = getApplicationContext();
 				
 		int appWidgetId = intent.getExtras().getInt(AppWidgetManager.EXTRA_APPWIDGET_ID);
 		
 		RemoteViews remoteView = new RemoteViews(
-				self.getPackageName(), 
+				mContext.getPackageName(), 
 				R.layout.friday_countdown_widget);
 		
 		AppWidgetManager appWidgetManager = 
-				AppWidgetManager.getInstance(self);
+				AppWidgetManager.getInstance(mContext);
 		
-		SharedPreferences prefs = self.getSharedPreferences(Constants.APP_PREFS_NAME, 0);
+		SharedPreferences prefs = mContext.getSharedPreferences(Constants.APP_PREFS_NAME, 0);
 
 //		if (command.equals(PLUS)) {
 //			SharedPreferences.Editor edit = prefs.edit();
@@ -45,9 +53,14 @@ public class CountdownService extends Service {
 
 		int goalHour = prefs.getInt(Constants.PREF_GOAL_HOUR + appWidgetId, 0);
 		int goalMinute = prefs.getInt(Constants.PREF_GOAL_MINUTE + appWidgetId, 0);
+		boolean notifyMe = prefs.getBoolean(Constants.PREF_NOTIFY_ME + appWidgetId, true);
 		
 		// compute the time left
-		FridayTimeLeft timeLeft = new FridayTimeLeft(goalHour, goalMinute);
+		FridayTimeLeft timeLeft = new FridayTimeLeft();
+		timeLeft.calc(goalHour, goalMinute);
+		
+		if ( timeLeft.isFridayStart && notifyMe )
+			generateNotification();
 		
 		if ( timeLeft.isFridayHasCome ) {
 			remoteView.setViewVisibility (R.id.title, View.GONE);
@@ -59,7 +72,7 @@ public class CountdownService extends Service {
 			remoteView.setViewVisibility (R.id.time_left, View.VISIBLE);
 			remoteView.setViewVisibility (R.id.title_has_come, View.GONE);
 
-			remoteView.setTextViewText( R.id.time_left, timeLeft.getMessage(self) );
+			remoteView.setTextViewText( R.id.time_left, timeLeft.getMessage(mContext) );
 		}
 		
 //		remoteView.setOnClickPendingIntent(R.id.plusbutton, CountdownWidget
@@ -67,9 +80,9 @@ public class CountdownService extends Service {
 //						appWidgetId));
 
 		// Create an Intent to launch Activity
-        Intent activityIntent = new Intent(self, ShowImageActivity.class);
+        Intent activityIntent = new Intent(mContext, ShowImageActivity.class);
         activityIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-        PendingIntent pendingIntent = PendingIntent.getActivity(self, appWidgetId, activityIntent, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(mContext, appWidgetId, activityIntent, 0);
 
         // Get the layout for the App Widget and attach an on-click listener to the button
         remoteView.setOnClickPendingIntent(R.id.countdown_layout, pendingIntent);
@@ -84,6 +97,54 @@ public class CountdownService extends Service {
 		super.onStart(intent, startId);
 	}
 
+// Notify - Friday is begin	
+	private void generateNotification() {
+        Log.d(TAG, "Notify user - Friday has come");
+        
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        
+        CharSequence contentTitle = mContext.getString(R.string.friday_has_come);
+        Notification notification = new Notification( R.drawable.ic_launcher, contentTitle, System.currentTimeMillis() );
+
+        CharSequence contentText;
+        Intent notificationIntent;
+
+		if (new Random().nextBoolean()) {
+// show picture
+			Log.d(TAG, "Notify action: enjoy picture");
+
+			contentText = mContext.getString(R.string.action_enjoy_picture);
+			
+			notificationIntent = new Intent(this, ShowImageActivity.class);
+		} else {
+// visit Facebook page
+			Log.d(TAG, "Notify action: visit Facebook page");
+
+			contentText = mContext.getString(R.string.action_visit_project_page);
+
+			String uri;
+// check if Facebook is installed
+			try {
+				ApplicationInfo info = getPackageManager().getApplicationInfo("com.facebook.katana", 0);
+
+				uri = Constants.FACEBOOK_GROUP_LINK_NATIVE;
+			} catch (PackageManager.NameNotFoundException e) {
+
+				uri = Constants.FACEBOOK_GROUP_LINK_HTTP;
+			}
+
+			notificationIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+		}
+        
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+
+        notification.setLatestEventInfo(mContext, contentTitle, contentText, contentIntent);
+        notification.defaults = Notification.DEFAULT_ALL;
+        
+        mNotificationManager.notify( R.string.friday_has_come, notification );
+	}
+
+	
 	@Override
 	public IBinder onBind(Intent arg0) {
 		return null;
