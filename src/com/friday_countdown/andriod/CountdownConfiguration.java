@@ -12,14 +12,16 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.TimePicker;
 
 public class CountdownConfiguration extends Activity {
 
 	private Context self = this;
 	private int mAppWidgetId;
-	private TimePicker mTimePicker;
-	private CheckBox mCheckBox;
+	private TimePicker mStartTime;
+	private CheckBox mNotifyMe;
+	private RadioButton mWidgetTypeDark, mWidgetTypeBright;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +45,16 @@ public class CountdownConfiguration extends Activity {
 
 		setContentView(R.layout.configuration);
 
-		mTimePicker = (TimePicker) findViewById(R.id.friday_start_time);
-		mTimePicker.setCurrentHour(19);
-		mTimePicker.setCurrentMinute(0);
+		mStartTime = (TimePicker) findViewById(R.id.friday_start_time);
+		mStartTime.setCurrentHour(19);
+		mStartTime.setCurrentMinute(0);
 		
-		mCheckBox = (CheckBox) findViewById(R.id.notify_me);
-		mCheckBox.setChecked(true);
+		mNotifyMe = (CheckBox) findViewById(R.id.notify_me);
+		mNotifyMe.setChecked(true);
+		
+		mWidgetTypeDark = (RadioButton)findViewById(R.id.widget_type_dark);
+		mWidgetTypeBright = (RadioButton)findViewById(R.id.widget_type_bright);
+		
 		
 		// the OK button
 		Button ok = (Button) findViewById(R.id.ok_button);
@@ -58,9 +64,10 @@ public class CountdownConfiguration extends Activity {
 				SharedPreferences prefs = self.getSharedPreferences(Constants.APP_PREFS_NAME, 0);
 				SharedPreferences.Editor edit = prefs.edit();
 				
-				edit.putInt(Constants.PREF_GOAL_HOUR + mAppWidgetId, mTimePicker.getCurrentHour());
-				edit.putInt(Constants.PREF_GOAL_MINUTE + mAppWidgetId, mTimePicker.getCurrentMinute());
-				edit.putBoolean(Constants.PREF_NOTIFY_ME + mAppWidgetId, mCheckBox.isChecked());
+				edit.putInt( Constants.PREF_GOAL_HOUR + mAppWidgetId, mStartTime.getCurrentHour() );
+				edit.putInt( Constants.PREF_GOAL_MINUTE + mAppWidgetId, mStartTime.getCurrentMinute() );
+				edit.putBoolean( Constants.PREF_NOTIFY_ME + mAppWidgetId, mNotifyMe.isChecked() );
+				edit.putInt( Constants.PREF_WIDGET_TYPE + mAppWidgetId, getSelectedWidgetType() );
 				
 				edit.commit();
 
@@ -78,6 +85,7 @@ public class CountdownConfiguration extends Activity {
 				setResult(RESULT_OK, resultValue);
 				finish();
 			}
+
 		});
 
 		// cancel button
@@ -89,5 +97,18 @@ public class CountdownConfiguration extends Activity {
 			}
 		});
 	}
+	
+// choose selected widget type	
+	private int getSelectedWidgetType() {
+		int widgetType = Constants.WIDGET_TYPE_DARK;
+		
+		if ( mWidgetTypeDark.isChecked() )
+			widgetType = Constants.WIDGET_TYPE_DARK;
+		else if ( mWidgetTypeBright.isChecked() )
+			widgetType = Constants.WIDGET_TYPE_BRIGHT;
+		
+		return widgetType;
+	}
+	
 
 }

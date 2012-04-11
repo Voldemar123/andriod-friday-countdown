@@ -160,7 +160,6 @@ public class FridayTimeLeft {
 		System.out.println(fr.isFridayStart);
 		System.out.println(fr.isFridayHasCome);
 		System.out.println(fr.getMessage(null));
-		
 	}
 
 }

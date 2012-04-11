@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="widget_dark" parent="@android:style/Theme.Black">
+        <item name="android:background">@drawable/appwidget_dark_bg_clickable</item>
+    </style>
+    
+    <style name="widget_bright" parent="@android:style/Theme.Light">
+        <item name="android:background">@drawable/appwidget_bg_clickable</item>
+    </style>
+    
+</resources>

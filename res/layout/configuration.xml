@@ -24,9 +24,9 @@
 
             <TimePicker
                 android:id="@+id/friday_start_time"
-                android:layout_marginBottom="20dip"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dip" />
 
             <CheckBox
                 android:id="@+id/notify_me"
@@ -34,15 +34,40 @@
                 android:layout_height="wrap_content"
                 android:text="@string/configuration_notify_me" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dip"
+                android:text="@string/configuration_widget_type"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/widget_type_dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/configuration_widget_type_dark" />
+                
+                <RadioButton
+                    android:id="@+id/widget_type_bright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/configuration_widget_type_bright" />
+            </RadioGroup>
         </LinearLayout>
     </ScrollView>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@android:color/darker_gray"
         android:minHeight="54dip"
+        android:orientation="horizontal"
         android:paddingLeft="2dip"
         android:paddingRight="2dip"
         android:paddingTop="4dip" >
@@ -51,18 +76,18 @@
             android:id="@+id/ok_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:minWidth="100dip"
             android:onClick="saveExecution"
-            android:layout_weight="1"
             android:text="@string/configuration_ok_button" />
 
         <Button
             android:id="@+id/cancel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:minWidth="100dip"
             android:onClick="closeExecution"
-            android:layout_weight="1"
             android:text="@string/configuration_cancel_button" />
     </LinearLayout>
 

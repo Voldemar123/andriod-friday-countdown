@@ -6,13 +6,13 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
@@ -54,6 +54,9 @@ public class CountdownService extends Service {
 		int goalHour = prefs.getInt(Constants.PREF_GOAL_HOUR + appWidgetId, 0);
 		int goalMinute = prefs.getInt(Constants.PREF_GOAL_MINUTE + appWidgetId, 0);
 		boolean notifyMe = prefs.getBoolean(Constants.PREF_NOTIFY_ME + appWidgetId, true);
+		int widgetType = prefs.getInt( Constants.PREF_WIDGET_TYPE + appWidgetId, Constants.WIDGET_TYPE_DARK );
+
+		changeWidgetStyle( remoteView, widgetType );
 		
 		// compute the time left
 		FridayTimeLeft timeLeft = new FridayTimeLeft();
@@ -63,14 +66,14 @@ public class CountdownService extends Service {
 			generateNotification();
 		
 		if ( timeLeft.isFridayHasCome ) {
-			remoteView.setViewVisibility (R.id.title, View.GONE);
-			remoteView.setViewVisibility (R.id.time_left, View.GONE);
-			remoteView.setViewVisibility (R.id.title_has_come, View.VISIBLE);
+			remoteView.setViewVisibility(R.id.title, View.GONE);
+			remoteView.setViewVisibility(R.id.time_left, View.GONE);
+			remoteView.setViewVisibility(R.id.title_has_come, View.VISIBLE);
 		}
 		else {
-			remoteView.setViewVisibility (R.id.title, View.VISIBLE);
-			remoteView.setViewVisibility (R.id.time_left, View.VISIBLE);
-			remoteView.setViewVisibility (R.id.title_has_come, View.GONE);
+			remoteView.setViewVisibility(R.id.title, View.VISIBLE);
+			remoteView.setViewVisibility(R.id.time_left, View.VISIBLE);
+			remoteView.setViewVisibility(R.id.title_has_come, View.GONE);
 
 			remoteView.setTextViewText( R.id.time_left, timeLeft.getMessage(mContext) );
 		}
@@ -95,6 +98,37 @@ public class CountdownService extends Service {
 		appWidgetManager.updateAppWidget(appWidgetId, remoteView);
 		
 		super.onStart(intent, startId);
+	}
+
+	private void changeWidgetStyle(RemoteViews remoteView, int widgetType) {
+		int widgetBackground, textColor; 
+		
+// select widget theme		
+		switch (widgetType) {
+			case Constants.WIDGET_TYPE_DARK:
+				widgetBackground = R.drawable.appwidget_dark_bg_clickable;
+				textColor = Color.WHITE;
+			
+				break;
+
+			case Constants.WIDGET_TYPE_BRIGHT:
+				widgetBackground = R.drawable.appwidget_bg_clickable;
+				textColor = Color.DKGRAY;
+			
+				break;
+				
+			default:
+				widgetBackground = R.drawable.appwidget_dark_bg_clickable;
+				textColor = Color.WHITE;
+				
+				break;
+		}
+		
+		remoteView.setInt( R.id.countdown_layout, "setBackgroundResource", widgetBackground );
+
+		remoteView.setTextColor( R.id.title, textColor );
+		remoteView.setTextColor( R.id.time_left, textColor );
+		remoteView.setTextColor( R.id.title_has_come, textColor );
 	}
 
 // Notify - Friday is begin	
@@ -125,7 +159,7 @@ public class CountdownService extends Service {
 			String uri;
 // check if Facebook is installed
 			try {
-				ApplicationInfo info = getPackageManager().getApplicationInfo("com.facebook.katana", 0);
+				getPackageManager().getApplicationInfo("com.facebook.katana", 0);
 
 				uri = Constants.FACEBOOK_GROUP_LINK_NATIVE;
 			} catch (PackageManager.NameNotFoundException e) {

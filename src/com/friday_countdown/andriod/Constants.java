@@ -21,6 +21,11 @@ public class Constants {
 	protected static final String PREF_GOAL_HOUR = "goal_hour";
 	protected static final String PREF_GOAL_MINUTE = "goal_minute";
 	protected static final String PREF_NOTIFY_ME = "notify_me";
+	protected static final String PREF_WIDGET_TYPE = "widget_type";
+
+// widget type (background color)	
+	public static final int WIDGET_TYPE_DARK = 1;
+	public static final int WIDGET_TYPE_BRIGHT = 2;
 	
 // Friday pictures names list	
 	protected static final String IMAGE_NAMES[] = {
@@ -73,7 +78,27 @@ public class Constants {
 			"f0047.jpg",
 			"f0048.jpg",
 			"f0049.jpg",
-			"f0050.jpg"
+			"f0050.jpg",
+			"f0051.jpg",
+			"f0052.jpg",
+			"f0053.jpg",
+			"f0054.jpg",
+			"f0055.jpg",
+			"f0056.jpg",
+			"f0057.jpg",
+			"f0058.jpg",
+			"f0059.jpg",
+			"f0060.jpg",
+			"f0061.jpg",
+			"f0062.jpg",
+			"f0063.jpg",
+			"f0064.jpg",
+			"f0065.jpg",
+			"f0066.jpg",
+			"f0067.jpg",
+			"f0068.jpg",
+			"f0069.jpg",
+			"f0070.jpg"
 			
 	}; 
 	

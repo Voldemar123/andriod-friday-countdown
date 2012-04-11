@@ -5,7 +5,6 @@
     android:id="@+id/countdown_layout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/appwidget_dark_bg_clickable"
     android:orientation="vertical" >
 
     <TextView
