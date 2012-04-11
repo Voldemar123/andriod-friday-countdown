@@ -289,7 +289,7 @@ public class ImageStore extends BaseStore {
 		
 		StringBuffer html = new StringBuffer();
 		
-		html.append("<html><body style='margin:0;padding:0'>");
+		html.append("<html><body style='margin:0;padding:0;'>");
 		html.append("<img src='");
 		html.append("file:///");
 		html.append(Constants.APP_CACHE_PATH);
