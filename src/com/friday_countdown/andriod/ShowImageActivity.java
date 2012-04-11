@@ -126,7 +126,7 @@ public class ShowImageActivity extends Activity {
 			
 			mProgressDialog.setTitle(R.string.missing_content_progress);
 			mProgressDialog.setIndeterminate(false);
-			mProgressDialog.setMax(100);
+			mProgressDialog.setMax( mImageStore.missedImages.size() );
 			mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 			mProgressDialog.show();
 		}
