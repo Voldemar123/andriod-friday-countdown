@@ -13,6 +13,10 @@
 	<string name="configuration_widget_type_bright">Bright</string>
     
     <string name="friday_time_left">Until Friday left</string>
+    <string name="friday_time_left_day1">Until Friday left</string>
+    <string name="friday_time_left_hour1">Until Friday left</string>
+    <string name="friday_time_left_min1">Until Friday left</string>
+
     <string name="friday_has_come">Friday has come!</string>
     
     <string name="action_visit_project_page">Visit the project page on Facebook.</string>

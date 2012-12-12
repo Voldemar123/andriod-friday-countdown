@@ -60,6 +60,7 @@ public class CountdownService extends Service {
 		
 		// compute the time left
 		FridayTimeLeft timeLeft = new FridayTimeLeft();
+		timeLeft.setContext(mContext);
 		timeLeft.calc(goalHour, goalMinute);
 		
 		if ( timeLeft.isFridayStart && notifyMe )
@@ -75,7 +76,10 @@ public class CountdownService extends Service {
 			remoteView.setViewVisibility(R.id.time_left, View.VISIBLE);
 			remoteView.setViewVisibility(R.id.title_has_come, View.GONE);
 
-			remoteView.setTextViewText( R.id.time_left, timeLeft.getMessage(mContext) );
+// check Russian spelling			
+			remoteView.setTextViewText( R.id.title, timeLeft.getLeftMessage() );
+			
+			remoteView.setTextViewText( R.id.time_left, timeLeft.getMessage() );
 		}
 		
 //		remoteView.setOnClickPendingIntent(R.id.plusbutton, CountdownWidget
@@ -131,7 +135,7 @@ public class CountdownService extends Service {
 		remoteView.setTextColor( R.id.title_has_come, textColor );
 	}
 
-// Notify - Friday is begin	
+// notify user - Friday is begin	
 	private void generateNotification() {
         Log.d(TAG, "Notify user - Friday has come");
         

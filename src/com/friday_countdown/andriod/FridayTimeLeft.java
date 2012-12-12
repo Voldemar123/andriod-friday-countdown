@@ -15,11 +15,14 @@ public class FridayTimeLeft {
 	private final int HOUR = 60 * MINUTE;
 	private final int DAY = 24 * HOUR;
 
-	private Date mCurDate, mStartNextFriday;
+	private Date mCurDate;
 	private Calendar mCal;
+	private Context mContext;
 
-	public boolean isFridayHasCome; 
-	public boolean isFridayStart; 
+	public boolean isFridayHasCome, isFridayStart, isLeftOne;
+	private int leftMessageId = R.string.friday_time_left;
+	private int days, hours, mins;
+	
 
 	public FridayTimeLeft() {
 		mCal = GregorianCalendar.getInstance();
@@ -29,7 +32,11 @@ public class FridayTimeLeft {
 		mCal = GregorianCalendar.getInstance();
 		mCal.setTime(today);
 	}
-		
+
+	public void setContext(Context context) {
+		mContext = context;
+	}
+	
 	public void calc(int goalHour, int goalMinute) {
 		mCurDate = mCal.getTime();
 		
@@ -52,79 +59,87 @@ public class FridayTimeLeft {
 		
 		Date endFriday = mCal.getTime();
 		
-		isFridayHasCome = mCurDate.after(startFriday) && mCurDate.before(endFriday);
+		isFridayHasCome = isFridayStart || 
+				( mCurDate.after(startFriday) && mCurDate.before(endFriday) );
 		
 // count next Friday		
 		mCal.setTime(startFriday);
 		if ( mCurDate.after( mCal.getTime() ) )
 			mCal.add( GregorianCalendar.WEEK_OF_YEAR, 1 );
 		
-		mStartNextFriday = mCal.getTime();
+		Date startNextFriday = mCal.getTime();
+		
+		long left = startNextFriday.getTime() - mCurDate.getTime();
+
+		days = (int) Math.ceil(left / DAY);
+        left = left - days * DAY;
+        hours = (int) Math.ceil(left / HOUR);
+        left = left - hours * HOUR;
+        mins = (int) Math.ceil(left / MINUTE);
 	}
 
-	public String getMessage(Context context) {
+	public String getMessage() {
 		String msg = "";
 		
 		if ( isFridayHasCome ) {
-			if ( context == null )
+			if ( mContext == null )
 				return "пятница пришла!";
 			else
-				return context.getString(R.string.friday_has_come);
+				return mContext.getString(R.string.friday_has_come);
 		}
 		else {
-			long left = mStartNextFriday.getTime() - mCurDate.getTime();
-
-			int days = (int) Math.ceil(left / DAY);
-            left = left - days * DAY;
-            int hours = (int) Math.ceil(left / HOUR);
-            left = left - hours * HOUR;
-            int mins = (int) Math.ceil(left / MINUTE) + 1;
-            
 // left days
 			if ( days > 0 )
-				return getPluralDays(days, context);
+				return getPluralDays();
 // left hours
 			else if ( hours > 0 )
-				msg = getPluralHours(hours, context);
+				msg = getPluralHours();
 // left minutes
 			else if ( mins >= 0 )
-				msg = getPluralMinutes(mins, context);
+				msg = getPluralMinutes();
 		}
 		
 		return msg;
 	}
 	
-	private String getPluralDays(int count, Context context) {
-		if ( context == null )
-			return getPluralNumber(count, "д", "ень", "ня", "ней");
+	private static boolean checkLeftPluralOne(int count) {
+		int last_digit = count % 10;
+		int last_two_digits = count % 100;
+
+		return last_digit == 1 && last_two_digits != 11;
+	}	
+	
+	private String getPluralDays() {
+		if ( mContext == null )
+			return getPluralNumber(days, "д", "ень", "ня", "ней");
 		else
-			return getPluralNumber(count, 
-					context.getString(R.string.plural_day0), 
-					context.getString(R.string.plural_day1), 
-					context.getString(R.string.plural_day2), 
-					context.getString(R.string.plural_day3));
+			return getPluralNumber(days, 
+					mContext.getString(R.string.plural_day0), 
+					mContext.getString(R.string.plural_day1), 
+					mContext.getString(R.string.plural_day2), 
+					mContext.getString(R.string.plural_day3));
 	}
 
-	private String getPluralHours(int count, Context context) {
-		if ( context == null )
-			return getPluralNumber(count, "час", "", "а", "ов");		
+	private String getPluralHours() {
+		if ( mContext == null )
+			return getPluralNumber(hours, "час", "", "а", "ов");		
 		else
-			return getPluralNumber(count, 
-					context.getString(R.string.plural_hour0), 
-					context.getString(R.string.plural_hour1), 
-					context.getString(R.string.plural_hour2), 
-					context.getString(R.string.plural_hour3));
+			return getPluralNumber(hours, 
+					mContext.getString(R.string.plural_hour0), 
+					mContext.getString(R.string.plural_hour1), 
+					mContext.getString(R.string.plural_hour2), 
+					mContext.getString(R.string.plural_hour3));
 	}
 
-	private String getPluralMinutes(int count, Context context) {
-		if ( context == null )
-			return getPluralNumber(count, "минут", "а", "ы", "");		
+	private String getPluralMinutes() {
+		if ( mContext == null )
+			return getPluralNumber(mins, "минут", "а", "ы", "");		
 		else
-			return getPluralNumber(count, 
-					context.getString(R.string.plural_min0), 
-					context.getString(R.string.plural_min1), 
-					context.getString(R.string.plural_min2), 
-					context.getString(R.string.plural_min3));
+			return getPluralNumber(mins, 
+					mContext.getString(R.string.plural_min0), 
+					mContext.getString(R.string.plural_min1), 
+					mContext.getString(R.string.plural_min2), 
+					mContext.getString(R.string.plural_min3));
 	}
 	
 	private static String getPluralNumber(int count, String arg0, String arg1, String arg2, String arg3) {
@@ -148,18 +163,46 @@ public class FridayTimeLeft {
 
 		return result.toString();
 	}	
+
+// select "left" phrase	
+	public String getLeftMessage() {
+		if ( checkLeftPluralOne(days) )
+			leftMessageId = R.string.friday_time_left_day1;
+		else if ( checkLeftPluralOne(hours) )
+			leftMessageId = R.string.friday_time_left_hour1;
+		else if ( checkLeftPluralOne(mins) )
+			leftMessageId = R.string.friday_time_left_min1;
+
+		
+		if ( mContext != null )
+			return mContext.getString(leftMessageId);
+		else
+			switch (leftMessageId) {
+				case R.string.friday_time_left_day1:
+					return "остался";
+				case R.string.friday_time_left_hour1:
+					return "остался";
+				case R.string.friday_time_left_min1:
+					return "осталась";
+
+			default:
+				return "осталось";
+			}
+	}
 	
 	public static void main(String[] args) throws ParseException {
 		final DateFormat dfDate = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-		Date curDate = dfDate.parse("2012-02-24 19:01");
+		Date curDate = dfDate.parse("2012-12-14 18:59");
 		
 		FridayTimeLeft fr = new FridayTimeLeft(curDate);
+		fr.setContext(null);
 		fr.calc(19, 0);
 		
 		System.out.println(fr.mCurDate);
 		System.out.println(fr.isFridayStart);
 		System.out.println(fr.isFridayHasCome);
-		System.out.println(fr.getMessage(null));
+		System.out.println(fr.getLeftMessage());
+		System.out.println(fr.getMessage());
 	}
 
 }
