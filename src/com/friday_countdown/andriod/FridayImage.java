@@ -8,9 +8,10 @@ package com.friday_countdown.andriod;
 public class FridayImage {
 
 	int id;
-	String name;
+	String name, path;
+	boolean isDefault;
 	float rating;
 	boolean cameFromUser;
 	int width, height;
-	
+
 }

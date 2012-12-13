@@ -15,6 +15,7 @@ import java.util.Random;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -42,18 +43,8 @@ public class ImageStore extends BaseStore {
 		
 		mContext = context;
 		imagesData = new CountdownDatabaseHelper(context);
-		
-//		fillDatabase();
 	}
 
-	private void fillDatabase() {
-		Log.i(TAG, "Fill database");
-		
-		SQLiteDatabase db = imagesData.getWritableDatabase();
-		imagesData.fillSourceImages(db);		
-	}
-	
-	
 // Check for existence of source images, download the missing, if necessary  	
 	public boolean checkIsContentExists() throws LocalizedException {
 		Log.i(TAG, "Check source images existence");
@@ -194,7 +185,17 @@ public class ImageStore extends BaseStore {
         		conn.disconnect();
         }
 	}
-	
+
+// select default image if resources aren't load 	
+	public void loadDefaultImage() {
+		Log.d(TAG, "Get default image");
+		
+		fridayImage = new FridayImage();
+		fridayImage.isDefault = true;
+		
+		checkDefaultImageProperties();
+	}
+		
 // select random image based on user rating	
 	public void loadRandomImage() {
 		Log.d(TAG, "Get random image");
@@ -218,12 +219,12 @@ public class ImageStore extends BaseStore {
 		
 		fridayImage = pool.get( new Random().nextInt( pool.size() ) );
 		
-		checkImageDimensions();
+		checkImageProperties();
 	}
 
 // update user rating for image	
 	public void setRating(float rating) {
-		Log.d(TAG, "Update random rating #" + fridayImage.id + " : " + rating);
+		Log.d(TAG, "Update picture rating #" + fridayImage.id + " : " + rating);
 		
 		SQLiteDatabase db = imagesData.getWritableDatabase();
 
@@ -256,15 +257,33 @@ public class ImageStore extends BaseStore {
 		db.close();
 	}
 	
-// check picture dimensions	
-	private void checkImageDimensions() {
+// check resource picture path and dimensions	
+	private void checkDefaultImageProperties() {
+		if ( fridayImage.width != 0 && fridayImage.height != 0 )
+			return;
+		
+		Resources res = mContext.getResources();
+		Bitmap img = BitmapFactory.decodeResource( res, Constants.DEFAULT_IMAGE );
+		
+// get image file path from resources 
+		fridayImage.path = Constants.APP_RESOURCE_PATH + 
+				res.getString( Constants.DEFAULT_IMAGE );
+
+		fridayImage.width = img.getWidth();
+		fridayImage.height = img.getHeight();
+	}
+	
+// check picture path and dimensions	
+	private void checkImageProperties() {
 		Log.d(TAG, "Get picture object " + fridayImage.name);
 		
 		if ( fridayImage.width != 0 && fridayImage.height != 0 )
 			return;
 		
 		try {
-			FileInputStream fis = new FileInputStream( Constants.APP_CACHE_PATH + fridayImage.name );
+			fridayImage.path = Constants.APP_CACHE_PATH + fridayImage.name;
+
+			FileInputStream fis = new FileInputStream( fridayImage.path );
 			BufferedInputStream bis = new BufferedInputStream(fis);
             
 			Bitmap img = BitmapFactory.decodeStream(bis);
@@ -275,6 +294,7 @@ public class ImageStore extends BaseStore {
 			bis.close();
 			fis.close();
 			
+// only for DB stored images			
 			setPictureDimensions(fridayImage.width, fridayImage.height);
 			
 		} catch (IOException e) {
@@ -292,8 +312,7 @@ public class ImageStore extends BaseStore {
 		html.append("<html><body style='margin:0;padding:0;'>");
 		html.append("<img src='");
 		html.append("file:///");
-		html.append(Constants.APP_CACHE_PATH);
-		html.append(fridayImage.name);
+		html.append(fridayImage.path);
 		html.append("' width='");
 		html.append(fridayImage.width);
 		html.append("' height='");

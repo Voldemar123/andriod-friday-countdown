@@ -1,9 +1,12 @@
 package com.friday_countdown.andriod;
 
+import com.friday_countdown.andriod.R.drawable;
+
 import android.os.Environment;
 
 public class Constants {
 
+	public static final String APP_RESOURCE_PATH = "android_";
 	public static final String APP_PREFS_NAME = "com.friday_countdown.andriod";
 	public static final String APP_CACHE_PATH = 
 		Environment.getExternalStorageDirectory().getAbsolutePath() + 
@@ -26,6 +29,8 @@ public class Constants {
 // widget type (background color)	
 	public static final int WIDGET_TYPE_DARK = 1;
 	public static final int WIDGET_TYPE_BRIGHT = 2;
+	
+	public static final int DEFAULT_IMAGE = drawable.f0001;
 	
 // Friday pictures names list	
 	protected static final String IMAGE_NAMES[] = {
@@ -98,7 +103,8 @@ public class Constants {
 			"f0067.jpg",
 			"f0068.jpg",
 			"f0069.jpg",
-			"f0070.jpg"
+			"f0070.jpg",
+			"f0071.jpg"
 			
 	}; 
 	

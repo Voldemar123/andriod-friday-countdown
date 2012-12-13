@@ -71,9 +71,9 @@ public class ShowImageActivity extends Activity {
 		
 		mImageStore = new ImageStore(this);
         try {
-        	
+// check already loaded images        	
 			if ( !mImageStore.checkIsContentExists() )
-				downloadMissingContent(mImageStore);
+				downloadMissingContent();
 			else {
 				mImageStore.loadRandomImage();
 				initializeUI();
@@ -88,7 +88,7 @@ public class ShowImageActivity extends Activity {
 	}
 
 // try to download not exists images
-	private void downloadMissingContent(ImageStore store) {
+	private void downloadMissingContent() {
 		mProgressDialog = new ProgressDialog(this);
 		
 		new AlertDialog.Builder(this)
@@ -110,8 +110,9 @@ public class ShowImageActivity extends Activity {
 
 							@Override
 							public void onClick(DialogInterface dialog, int id) {
-								dialog.cancel();
-								finish();
+// show default image					
+								mImageStore.loadDefaultImage();
+				            	initializeUI();
 							}
 						}).show();
 		
