@@ -52,4 +52,8 @@
     
     <string name="image_rating_changed">Рейтинг изображения изменен</string>
     		
+    <string name="app_info_text">Чтобы поместить виджет на домашний экран, удерживайте палец на пустом пространстве и выберите \"Пятничный отсчет\" из списка виджетов.</string>
+    <string name="app_info_launcher">Искать иконку:</string>
+    
+    
 </resources>

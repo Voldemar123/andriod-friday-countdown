@@ -53,4 +53,7 @@
         
     <string name="image_rating_changed">Picture rating changed</string>
     
+    <string name="app_info_text">To place the widget on your home screen, hold finger down on an empty space and then select \"Friday countdown\" from the Widget list.</string>
+    <string name="app_info_launcher">Look for this icon:</string>
+    
 </resources>
