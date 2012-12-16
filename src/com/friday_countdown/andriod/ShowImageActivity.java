@@ -226,14 +226,12 @@ public class ShowImageActivity extends Activity {
     	int width = display.getWidth(); 
         int height = display.getHeight(); 
 
-        Log.d(TAG, "Display width " + width);
-        Log.d(TAG, "Display height " + height);
+        Log.d(TAG, "Display view " + width + "x" + height);
 
         int picWidth = mImageStore.fridayImage.width;
         int picHeight = mImageStore.fridayImage.height;
         
-        Log.d(TAG, "Picture width " + picWidth);
-        Log.d(TAG, "Picture height " + picHeight);
+        Log.d(TAG, "Picture dimensions " + picWidth + "x" + picHeight);
 
 // scale web view depend of rotate device        
         Double val = 1d;
@@ -246,6 +244,7 @@ public class ShowImageActivity extends Activity {
     
     	mWebView.setInitialScale( val.intValue() );
 		mWebView.loadDataWithBaseURL("/", mImageStore.getHtml(), "text/html", "UTF-8", null);
+		mWebView.refreshDrawableState();
 		
 		mRatingbar.setRating(mImageStore.fridayImage.rating);
     }

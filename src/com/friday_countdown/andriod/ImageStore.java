@@ -66,8 +66,6 @@ public class ImageStore extends BaseStore {
 	
 // Check existence of image in application store	
 	private boolean isImageExists(String imageName) {
-		Log.d(TAG, "Check image " + imageName );
-		
 		File file = new File( Constants.APP_CACHE_PATH + imageName );
 	    if (!file.exists()) 
 	    	Log.w(TAG, "Image " + imageName + " not exists");
@@ -202,14 +200,14 @@ public class ImageStore extends BaseStore {
 		
 		ArrayList<FridayImage> pool = new ArrayList<FridayImage>();
 		
+// fill images pool		
 		for (FridayImage image : getImages() ) {
-			Log.d(TAG, "Fill image pool " + image.name + " ( " + image.rating + " )");
 			
 			pool.add(image);
 			
+// increase image chances			
 			if ( image.rating > 0 ) {
 				for (int i = 0; i < image.rating; i++) {
-					Log.d(TAG, "Increase image chances " + image.name);
 					pool.add(image);
 				}
 			}
@@ -266,7 +264,7 @@ public class ImageStore extends BaseStore {
 		Bitmap img = BitmapFactory.decodeResource( res, Constants.DEFAULT_IMAGE );
 		
 // get image file path from resources 
-		fridayImage.path = Constants.APP_RESOURCE_PATH + 
+		fridayImage.path = "file:///" + Constants.APP_RESOURCE_PATH + 
 				res.getString( Constants.DEFAULT_IMAGE );
 
 		fridayImage.width = img.getWidth();
@@ -277,29 +275,30 @@ public class ImageStore extends BaseStore {
 	private void checkImageProperties() {
 		Log.d(TAG, "Get picture object " + fridayImage.name);
 		
-		if ( fridayImage.width != 0 && fridayImage.height != 0 )
-			return;
-		
-		try {
-			fridayImage.path = Constants.APP_CACHE_PATH + fridayImage.name;
+		fridayImage.path = Constants.APP_CACHE_PATH + fridayImage.name;
 
-			FileInputStream fis = new FileInputStream( fridayImage.path );
-			BufferedInputStream bis = new BufferedInputStream(fis);
-            
-			Bitmap img = BitmapFactory.decodeStream(bis);
-			
-			fridayImage.width = img.getWidth();
-			fridayImage.height = img.getHeight();
-			
-			bis.close();
-			fis.close();
-			
-// only for DB stored images			
-			setPictureDimensions(fridayImage.width, fridayImage.height);
+		try {
+			if ( fridayImage.width == 0 || fridayImage.height == 0 ) {
+				FileInputStream fis = new FileInputStream( fridayImage.path );
+				BufferedInputStream bis = new BufferedInputStream(fis);
+	            
+				Bitmap img = BitmapFactory.decodeStream(bis);
+				
+				bis.close();
+				fis.close();
+
+				fridayImage.width = img.getWidth();
+				fridayImage.height = img.getHeight();
+				
+	// only for DB stored images			
+				setPictureDimensions(fridayImage.width, fridayImage.height);
+			}
 			
 		} catch (IOException e) {
 			Log.e(TAG, "Picture load problem : " + e.getMessage(), e);
 		}
+		
+		fridayImage.path = "file://" + fridayImage.path;
 	}
 
 // return HTML document contains Friday picture	
@@ -311,7 +310,6 @@ public class ImageStore extends BaseStore {
 		
 		html.append("<html><body style='margin:0;padding:0;'>");
 		html.append("<img src='");
-		html.append("file:///");
 		html.append(fridayImage.path);
 		html.append("' width='");
 		html.append(fridayImage.width);
