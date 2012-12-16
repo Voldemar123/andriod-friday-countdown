@@ -20,7 +20,7 @@ public class CountdownConfiguration extends Activity {
 	private Context self = this;
 	private int mAppWidgetId;
 	private TimePicker mStartTime;
-	private CheckBox mNotifyMe;
+	private CheckBox mNotifyMe, mWidgetTypeTransparent;
 	private RadioButton mWidgetTypeDark, mWidgetTypeBright;
 	
 	@Override
@@ -54,6 +54,7 @@ public class CountdownConfiguration extends Activity {
 		
 		mWidgetTypeDark = (RadioButton)findViewById(R.id.widget_type_dark);
 		mWidgetTypeBright = (RadioButton)findViewById(R.id.widget_type_bright);
+		mWidgetTypeTransparent = (CheckBox) findViewById(R.id.widget_type_transparent);
 		
 		
 		// the OK button
@@ -67,6 +68,7 @@ public class CountdownConfiguration extends Activity {
 				edit.putInt( Constants.PREF_GOAL_HOUR + mAppWidgetId, mStartTime.getCurrentHour() );
 				edit.putInt( Constants.PREF_GOAL_MINUTE + mAppWidgetId, mStartTime.getCurrentMinute() );
 				edit.putBoolean( Constants.PREF_NOTIFY_ME + mAppWidgetId, mNotifyMe.isChecked() );
+				
 				edit.putInt( Constants.PREF_WIDGET_TYPE + mAppWidgetId, getSelectedWidgetType() );
 				
 				edit.commit();
@@ -98,14 +100,22 @@ public class CountdownConfiguration extends Activity {
 		});
 	}
 	
-// choose selected widget type	
+// choose selected widget background type	
 	private int getSelectedWidgetType() {
 		int widgetType = Constants.WIDGET_TYPE_DARK;
 		
-		if ( mWidgetTypeDark.isChecked() )
+		if ( mWidgetTypeDark.isChecked() ) {
 			widgetType = Constants.WIDGET_TYPE_DARK;
-		else if ( mWidgetTypeBright.isChecked() )
+
+			if ( mWidgetTypeTransparent.isChecked() )
+				widgetType = Constants.WIDGET_TYPE_DARK_TRANSPARENT;
+		}
+		else if ( mWidgetTypeBright.isChecked() ) {
 			widgetType = Constants.WIDGET_TYPE_BRIGHT;
+			
+			if ( mWidgetTypeTransparent.isChecked() )
+				widgetType = Constants.WIDGET_TYPE_BRIGHT_TRANSPARENT;
+		}
 		
 		return widgetType;
 	}

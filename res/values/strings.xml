@@ -3,15 +3,14 @@
 
     <string name="app_name">Friday countdown</string>
     
-    <string name="configuration_ok_button">Ok</string>
-    <string name="configuration_cancel_button">Cancel</string>
     <string name="configuration_when_start_friday">When you start Friday?</string>
     <string name="configuration_notify_me">Notify me</string>
 
     <string name="configuration_widget_type">Color of the countdown widget</string>
 	<string name="configuration_widget_type_dark">Dark</string>
 	<string name="configuration_widget_type_bright">Bright</string>
-    
+	<string name="configuration_widget_type_transparent">Semi-transparent background</string>
+	
     <string name="friday_time_left">Until Friday left</string>
     <string name="friday_time_left_day1">Until Friday left</string>
     <string name="friday_time_left_hour1">Until Friday left</string>

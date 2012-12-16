@@ -5,8 +5,15 @@
         <item name="android:background">@drawable/appwidget_dark_bg_clickable</item>
     </style>
     
+    <style name="widget_dark_transparent" parent="@android:style/Theme.Black">
+        <item name="android:background">@drawable/appwidget_dark_transparent_bg_clickable</item>
+    </style>
+    
     <style name="widget_bright" parent="@android:style/Theme.Light">
         <item name="android:background">@drawable/appwidget_bg_clickable</item>
     </style>
     
+    <style name="widget_bright_transparent" parent="@android:style/Theme.Light">
+        <item name="android:background">@drawable/appwidget_transparent_bg_clickable</item>
+    </style>
 </resources>

@@ -111,6 +111,12 @@ public class CountdownService extends Service {
 		switch (widgetType) {
 			case Constants.WIDGET_TYPE_DARK:
 				widgetBackground = R.drawable.appwidget_dark_bg_clickable;
+				textColor = Color.LTGRAY;
+			
+				break;
+
+			case Constants.WIDGET_TYPE_DARK_TRANSPARENT:
+				widgetBackground = R.drawable.appwidget_dark_transparent_bg_clickable;
 				textColor = Color.WHITE;
 			
 				break;
@@ -121,6 +127,12 @@ public class CountdownService extends Service {
 			
 				break;
 				
+			case Constants.WIDGET_TYPE_BRIGHT_TRANSPARENT:
+				widgetBackground = R.drawable.appwidget_transparent_bg_clickable;
+				textColor = Color.BLACK;
+			
+				break;
+
 			default:
 				widgetBackground = R.drawable.appwidget_dark_bg_clickable;
 				textColor = Color.WHITE;

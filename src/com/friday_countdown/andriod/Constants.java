@@ -28,7 +28,9 @@ public class Constants {
 
 // widget type (background color)	
 	public static final int WIDGET_TYPE_DARK = 1;
-	public static final int WIDGET_TYPE_BRIGHT = 2;
+	public static final int WIDGET_TYPE_DARK_TRANSPARENT = 2;
+	public static final int WIDGET_TYPE_BRIGHT = 3;
+	public static final int WIDGET_TYPE_BRIGHT_TRANSPARENT = 4;
 	
 	public static final int DEFAULT_IMAGE = drawable.f0001;
 	
