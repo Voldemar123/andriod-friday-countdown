@@ -19,7 +19,7 @@ import android.widget.RatingBar.OnRatingBarChangeListener;
 import android.widget.Toast;
 
 /**
- * Show random Friaday image after click to countdown widget
+ * Show random Friday image after click to countdown widget
  * Check and download all missed content 
  * @author VMaximenko
  *
@@ -200,10 +200,12 @@ public class ShowImageActivity extends Activity {
     	mWebView.setPadding(0, 0, 0, 0);
     	
     	mRatingbar = (RatingBar) findViewById(R.id.image_rating);
+    	mRatingbar.setRating(mImageStore.fridayImage.rating);
 
     	mRatingbar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
 
+            	mImageStore.fridayImage.rating = rating;
             	mImageStore.setRating(rating);
             	
                 Toast.makeText(ShowImageActivity.this, 
@@ -237,7 +239,7 @@ public class ShowImageActivity extends Activity {
         Double val = 1d;
 
 		if (picHeight > height)
-			val = new Double(height) / new Double(picHeight);
+			val = Double.valueOf(height) / Double.valueOf(picHeight);
         
     	val = val * 100d;
     	Log.i(TAG, "Scale to " + val);
@@ -245,8 +247,6 @@ public class ShowImageActivity extends Activity {
     	mWebView.setInitialScale( val.intValue() );
 		mWebView.loadDataWithBaseURL("/", mImageStore.getHtml(), "text/html", "UTF-8", null);
 		mWebView.refreshDrawableState();
-		
-		mRatingbar.setRating(mImageStore.fridayImage.rating);
     }
 	
     @Override
