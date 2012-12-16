@@ -166,12 +166,18 @@ public class FridayTimeLeft {
 
 // select "left" phrase	
 	public String getLeftMessage() {
-		if ( checkLeftPluralOne(days) )
-			leftMessageId = R.string.friday_time_left_day1;
-		else if ( checkLeftPluralOne(hours) )
-			leftMessageId = R.string.friday_time_left_hour1;
-		else if ( checkLeftPluralOne(mins) )
-			leftMessageId = R.string.friday_time_left_min1;
+		if ( days > 0 ) {
+			if ( checkLeftPluralOne(days) )
+				leftMessageId = R.string.friday_time_left_day1;
+		}
+		else if ( hours > 0 ) {
+			if ( hours > 0 && checkLeftPluralOne(hours) )
+				leftMessageId = R.string.friday_time_left_hour1;
+		}
+		else if ( mins > 0 ) {
+			if ( checkLeftPluralOne(mins) )
+				leftMessageId = R.string.friday_time_left_min1;
+		}
 
 		
 		if ( mContext != null )
@@ -192,7 +198,7 @@ public class FridayTimeLeft {
 	
 	public static void main(String[] args) throws ParseException {
 		final DateFormat dfDate = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-		Date curDate = dfDate.parse("2012-12-14 18:59");
+		Date curDate = dfDate.parse("2012-12-16 17:44");
 		
 		FridayTimeLeft fr = new FridayTimeLeft(curDate);
 		fr.setContext(null);
