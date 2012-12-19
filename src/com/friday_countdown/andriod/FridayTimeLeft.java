@@ -76,6 +76,11 @@ public class FridayTimeLeft {
         hours = (int) Math.ceil(left / HOUR);
         left = left - hours * HOUR;
         mins = (int) Math.ceil(left / MINUTE);
+        left = left - mins * MINUTE;
+        
+// if left some seconds - increase minutes        
+        if ( left > 0 )
+        	mins++;
 	}
 
 	public String getMessage() {
@@ -197,8 +202,8 @@ public class FridayTimeLeft {
 	}
 	
 	public static void main(String[] args) throws ParseException {
-		final DateFormat dfDate = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-		Date curDate = dfDate.parse("2012-12-16 17:44");
+		final DateFormat dfDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		Date curDate = dfDate.parse("2012-12-21 18:59:50");
 		
 		FridayTimeLeft fr = new FridayTimeLeft(curDate);
 		fr.setContext(null);
