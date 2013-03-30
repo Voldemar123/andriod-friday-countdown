@@ -17,6 +17,8 @@
     <string name="friday_time_left_min1">Until Friday left</string>
 
     <string name="friday_has_come">Friday has come!</string>
+    <string name="saturday_has_come">is Saturday</string>
+    <string name="sunday_has_come">still Sunday</string>
     
     <string name="action_visit_project_page">Visit the project page on Facebook.</string>
     <string name="action_enjoy_picture">Enjoy Friday\'s picture.</string>

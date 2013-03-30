@@ -15,7 +15,9 @@
     <string name="friday_time_left_hour1">До пятницы остался</string>
     <string name="friday_time_left_min1">До пятницы осталась</string>
     
-    <string name="friday_has_come">Пятница пришла!</string>
+    <string name="friday_has_come">пятница пришла!</string>
+    <string name="saturday_has_come">уже суббота</string>
+    <string name="sunday_has_come">все еще воскресенье</string>
     
     <string name="action_visit_project_page">Посетите страницу проекта в Facebook.</string>
     <string name="action_enjoy_picture">Наслаждайся пятничной картинкой.</string>

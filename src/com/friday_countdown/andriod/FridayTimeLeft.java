@@ -19,7 +19,7 @@ public class FridayTimeLeft {
 	private Calendar mCal;
 	private Context mContext;
 
-	public boolean isFridayHasCome, isFridayStart, isLeftOne;
+	public boolean isFridayHasCome, isFridayStart, isSaturdayHasCome, isSundayHasCome;
 	private int leftMessageId = R.string.friday_time_left;
 	private int days, hours, mins;
 	
@@ -40,6 +40,7 @@ public class FridayTimeLeft {
 	public void calc(int goalHour, int goalMinute) {
 		mCurDate = mCal.getTime();
 		
+		mCal.setFirstDayOfWeek(Calendar.MONDAY);
 		mCal.set(GregorianCalendar.DAY_OF_WEEK, Calendar.FRIDAY);
 		mCal.set(GregorianCalendar.HOUR_OF_DAY, goalHour);
 		mCal.set(GregorianCalendar.MINUTE, goalMinute);
@@ -53,16 +54,33 @@ public class FridayTimeLeft {
 				mCurDate.getMinutes() == startFriday.getMinutes() )
 			isFridayStart = true;
 		
-		mCal.set(GregorianCalendar.DAY_OF_WEEK, Calendar.SATURDAY);
-		mCal.set(GregorianCalendar.HOUR_OF_DAY, 0);
-		mCal.set(GregorianCalendar.MINUTE, 0);
+		mCal.set(GregorianCalendar.HOUR_OF_DAY, 23);
+		mCal.set(GregorianCalendar.MINUTE, 59);
+		mCal.set(GregorianCalendar.SECOND, 59);
 		
 		Date endFriday = mCal.getTime();
 		
 		isFridayHasCome = isFridayStart || 
 				( mCurDate.after(startFriday) && mCurDate.before(endFriday) );
 		
-// count next Friday		
+// count the next weekend day 		
+		mCal.set(GregorianCalendar.DAY_OF_WEEK, Calendar.SATURDAY);
+		mCal.set(GregorianCalendar.HOUR_OF_DAY, 23);
+		mCal.set(GregorianCalendar.MINUTE, 59);
+		mCal.set(GregorianCalendar.SECOND, 59);
+		
+		Date endSaturday = mCal.getTime();
+
+		isSaturdayHasCome = mCurDate.after(endFriday) && mCurDate.before(endSaturday);
+
+		mCal.set(GregorianCalendar.DAY_OF_WEEK, Calendar.SUNDAY);
+				
+		Date endSunday = mCal.getTime();
+				
+		isSundayHasCome = mCurDate.after(endSaturday) && mCurDate.before(endSunday);
+		
+		
+// count the next Friday		
 		mCal.setTime(startFriday);
 		if ( mCurDate.after( mCal.getTime() ) )
 			mCal.add( GregorianCalendar.WEEK_OF_YEAR, 1 );
@@ -86,12 +104,22 @@ public class FridayTimeLeft {
 	public String getMessage() {
 		String msg = "";
 		
-		if ( isFridayHasCome ) {
-			if ( mContext == null )
-				return "пятница пришла!";
-			else
-				return mContext.getString(R.string.friday_has_come);
+		if (isFridayHasCome) {
+			return (mContext == null) ? 
+					"пятница пришла!" : 
+					mContext.getString(R.string.friday_has_come);
 		}
+		if (isSaturdayHasCome) {
+			return (mContext == null) ? 
+					"уже суббота" : 
+					mContext.getString(R.string.saturday_has_come);
+		}
+		if (isSundayHasCome) {
+			return (mContext == null) ? 
+					"все еще воскресенье" : 
+					mContext.getString(R.string.sunday_has_come);
+		}
+
 		else {
 // left days
 			if ( days > 0 )
@@ -203,7 +231,7 @@ public class FridayTimeLeft {
 	
 	public static void main(String[] args) throws ParseException {
 		final DateFormat dfDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		Date curDate = dfDate.parse("2012-12-21 18:59:50");
+		Date curDate = dfDate.parse("2013-03-31 23:58:00");
 		
 		FridayTimeLeft fr = new FridayTimeLeft(curDate);
 		fr.setContext(null);

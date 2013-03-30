@@ -66,21 +66,28 @@ public class CountdownService extends Service {
 		if ( timeLeft.isFridayStart && notifyMe )
 			generateNotification();
 		
-		if ( timeLeft.isFridayHasCome ) {
+		int messagePlace;
+		if ( timeLeft.isFridayHasCome ||
+				timeLeft.isSaturdayHasCome ||
+				timeLeft.isSundayHasCome ) {
 			remoteView.setViewVisibility(R.id.title, View.GONE);
 			remoteView.setViewVisibility(R.id.time_left, View.GONE);
 			remoteView.setViewVisibility(R.id.title_has_come, View.VISIBLE);
+
+			messagePlace = R.id.title_has_come;
 		}
 		else {
 			remoteView.setViewVisibility(R.id.title, View.VISIBLE);
 			remoteView.setViewVisibility(R.id.time_left, View.VISIBLE);
 			remoteView.setViewVisibility(R.id.title_has_come, View.GONE);
 
-// check Russian spelling			
+// check language spelling			
 			remoteView.setTextViewText( R.id.title, timeLeft.getLeftMessage() );
-			
-			remoteView.setTextViewText( R.id.time_left, timeLeft.getMessage() );
+			messagePlace = R.id.time_left;
 		}
+		
+		remoteView.setTextViewText( messagePlace, timeLeft.getMessage() );
+
 		
 //		remoteView.setOnClickPendingIntent(R.id.plusbutton, CountdownWidget
 //				.makeControlPendingIntent(getApplicationContext(), PLUS,
