@@ -106,8 +106,16 @@ public class Constants {
 			"f0068.jpg",
 			"f0069.jpg",
 			"f0070.jpg",
-			"f0071.jpg"
-			
+			"f0071.jpg",
+			"f0072.jpg",
+			"f0073.jpg",
+			"f0074.jpg",
+			"f0075.jpg",
+			"f0076.jpg",
+			"f0077.jpg",
+			"f0078.jpg",
+			"f0079.jpg",
+			"f0080.jpg"
 	}; 
 	
 }
