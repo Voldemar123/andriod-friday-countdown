@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 
 /**
@@ -31,9 +32,15 @@ public class ShowInfoActivity extends Activity {
         getWindow().setFeatureDrawableResource(
         		Window.FEATURE_LEFT_ICON,
         		android.R.drawable.ic_dialog_info);
+        
+     // close button
+     		Button close = (Button) findViewById(R.id.about_close_button);
+     		close.setOnClickListener(new OnClickListener() {
+     			@Override
+     			public void onClick(View arg0) {
+     				finish();
+     			}
+     		});
 	}
 
-	public void closeInfo(View view) {
-		finish();
-	}
 }
