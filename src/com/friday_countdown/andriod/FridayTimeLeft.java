@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 import android.content.Context;
 
@@ -15,7 +16,6 @@ public class FridayTimeLeft {
 	private final int HOUR = 60 * MINUTE;
 	private final int DAY = 24 * HOUR;
 
-	private Date mCurDate;
 	private Calendar mCal;
 	private Context mContext;
 
@@ -38,7 +38,7 @@ public class FridayTimeLeft {
 	}
 	
 	public void calc(int goalHour, int goalMinute) {
-		mCurDate = mCal.getTime();
+		Calendar curDate = (Calendar) mCal.clone();
 		
 		mCal.setFirstDayOfWeek(Calendar.MONDAY);
 		mCal.set(GregorianCalendar.DAY_OF_WEEK, Calendar.FRIDAY);
@@ -47,21 +47,22 @@ public class FridayTimeLeft {
 		mCal.set(GregorianCalendar.SECOND, 0);
 
 		Date startFriday = mCal.getTime();
+		Calendar startFridayCal = (Calendar) mCal.clone();
 
 // time to start Friday		
-		if ( mCurDate.getDay() == startFriday.getDay() && 
-				mCurDate.getHours() == startFriday.getHours() &&
-				mCurDate.getMinutes() == startFriday.getMinutes() )
+		if ( curDate.get(GregorianCalendar.DAY_OF_MONTH) == startFridayCal.get(GregorianCalendar.DAY_OF_MONTH) && 
+				curDate.get(GregorianCalendar.HOUR) == startFridayCal.get(GregorianCalendar.HOUR) &&
+				curDate.get(GregorianCalendar.MINUTE) == startFridayCal.get(GregorianCalendar.MINUTE) )
 			isFridayStart = true;
 		
 		mCal.set(GregorianCalendar.HOUR_OF_DAY, 23);
 		mCal.set(GregorianCalendar.MINUTE, 59);
 		mCal.set(GregorianCalendar.SECOND, 59);
 		
-		Date endFriday = mCal.getTime();
+		Calendar endFriday = (Calendar) mCal.clone();
 		
 		isFridayHasCome = isFridayStart || 
-				( mCurDate.after(startFriday) && mCurDate.before(endFriday) );
+				( curDate.after(startFridayCal) && curDate.before(endFriday) );
 		
 // count the next weekend day 		
 		mCal.set(GregorianCalendar.DAY_OF_WEEK, Calendar.SATURDAY);
@@ -69,25 +70,25 @@ public class FridayTimeLeft {
 		mCal.set(GregorianCalendar.MINUTE, 59);
 		mCal.set(GregorianCalendar.SECOND, 59);
 		
-		Date endSaturday = mCal.getTime();
+		Calendar endSaturday = (Calendar) mCal.clone();
 
-		isSaturdayHasCome = mCurDate.after(endFriday) && mCurDate.before(endSaturday);
+		isSaturdayHasCome = curDate.after(endFriday) && curDate.before(endSaturday);
 
 		mCal.set(GregorianCalendar.DAY_OF_WEEK, Calendar.SUNDAY);
 				
-		Date endSunday = mCal.getTime();
+		Calendar endSunday = (Calendar) mCal.clone();
 				
-		isSundayHasCome = mCurDate.after(endSaturday) && mCurDate.before(endSunday);
+		isSundayHasCome = curDate.after(endSaturday) && curDate.before(endSunday);
 		
 		
 // count the next Friday		
 		mCal.setTime(startFriday);
-		if ( mCurDate.after( mCal.getTime() ) )
+		if ( curDate.after( mCal ) )
 			mCal.add( GregorianCalendar.WEEK_OF_YEAR, 1 );
 		
-		Date startNextFriday = mCal.getTime();
+		Calendar startNextFriday = (Calendar) mCal.clone();
 		
-		long left = startNextFriday.getTime() - mCurDate.getTime();
+		long left = startNextFriday.getTimeInMillis() - curDate.getTimeInMillis();
 
 		days = (int) Math.ceil(left / DAY);
         left = left - days * DAY;
@@ -230,14 +231,14 @@ public class FridayTimeLeft {
 	}
 	
 	public static void main(String[] args) throws ParseException {
-		final DateFormat dfDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		final DateFormat dfDate = new SimpleDateFormat( "yyyy-MM-dd hh:mm:ss", Locale.getDefault() );
 		Date curDate = dfDate.parse("2013-03-31 23:58:00");
 		
 		FridayTimeLeft fr = new FridayTimeLeft(curDate);
 		fr.setContext(null);
 		fr.calc(19, 0);
 		
-		System.out.println(fr.mCurDate);
+		System.out.println(fr.mCal);
 		System.out.println(fr.isFridayStart);
 		System.out.println(fr.isFridayHasCome);
 		System.out.println(fr.getLeftMessage());
