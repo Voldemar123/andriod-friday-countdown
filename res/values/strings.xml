@@ -45,16 +45,13 @@
 	<string name="error_connection_status">Error occurred while trying download file</string> 
 	<string name="error_connection_not_present">Internet connection not present</string> 
 		
-    <string name="yes_button">Yes</string>
-    <string name="no_button">No</string>
-		
     <string name="missing_content_dialog_title">Missed content</string>
     <string name="missing_content_dialog_message">Do you want to download a few missing pictures?</string>
     <string name="missing_content_progress">Pictures downloading</string>
         
     <string name="image_rating_changed">Picture rating changed</string>
     
-    <string name="app_info_text">To place the widget on your home screen, hold finger down on an empty space and then select \"Friday countdown\" from the Widget list.</string>
+    <string name="app_info_text">To place the widget on your home screen select \"Friday countdown\" from the Widget list.</string>
     <string name="app_info_launcher">Look for this icon:</string>
     
 </resources>

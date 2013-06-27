@@ -44,16 +44,13 @@
 	<string name="error_connection_status">Ошибка при попытке скачать файл</string> 
 	<string name="error_connection_not_present">Отсутствует Интернет соединение</string>
 
-    <string name="yes_button">Да</string>
-    <string name="no_button">Нет</string>
-
     <string name="missing_content_dialog_title">Отсутствуют данные</string>
     <string name="missing_content_dialog_message">Вы хотите скачать несколько недостающих картинок?</string>
     <string name="missing_content_progress">Загрузка изображений</string>
     
     <string name="image_rating_changed">Рейтинг изображения изменен</string>
     		
-    <string name="app_info_text">Чтобы поместить виджет на домашний экран, удерживайте палец на пустом пространстве и выберите \"Пятничный отсчет\" из списка виджетов.</string>
+    <string name="app_info_text">Чтобы поместить виджет на домашний экран выберите \"Пятничный отсчет\" из списка виджетов.</string>
     <string name="app_info_launcher">Искать иконку:</string>
     
     
