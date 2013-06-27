@@ -5,11 +5,12 @@
     android:id="@+id/countdown_layout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="@dimen/widget_margin">
 
     <TextView
         android:id="@+id/title"
-        android:textSize="12dip"
+        android:textSize="12sp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -19,7 +20,7 @@
     <TextView
         android:id="@+id/time_left"
         android:textStyle="bold"
-        android:textSize="14dip"
+        android:textSize="14sp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal" >
@@ -28,7 +29,7 @@
     <TextView
         android:id="@+id/title_has_come"
         android:textStyle="bold"
-        android:textSize="13dip"
+        android:textSize="13sp"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:gravity="center"

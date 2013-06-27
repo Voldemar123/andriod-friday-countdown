@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
+import android.graphics.Point;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.AsyncTask;
@@ -56,7 +57,7 @@ public class ShowImageActivity extends Activity {
 				Log.d(TAG, "Shake detected, load new image");
 
 				loadImage();
-				setWebViewOrientationScale();
+				setWebViewOrientationScale(true);
 			}
         });
         
@@ -91,11 +92,11 @@ public class ShowImageActivity extends Activity {
 	private void downloadMissingContent() {
 		mProgressDialog = new ProgressDialog(this);
 		
-		new AlertDialog.Builder(this)
+		new AlertDialog.Builder( new ContextThemeWrapper(this, R.style.DialogTheme) )
 				.setIcon(android.R.drawable.ic_dialog_alert)
 				.setTitle(R.string.missing_content_dialog_title)
 				.setMessage(R.string.missing_content_dialog_message)
-				.setPositiveButton(R.string.yes_button,
+				.setPositiveButton( android.R.string.yes,
 						new DialogInterface.OnClickListener() {
 
 							@Override
@@ -105,7 +106,7 @@ public class ShowImageActivity extends Activity {
 							}
 
 						})
-				.setNegativeButton(R.string.no_button,
+				.setNegativeButton( android.R.string.no,
 						new DialogInterface.OnClickListener() {
 
 							@Override
@@ -178,11 +179,11 @@ public class ShowImageActivity extends Activity {
 	
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
-		Log.i(TAG, "Configuration changed " + newConfig.orientation);
+		Log.i(TAG, "Configuration changed, orientation " + newConfig.orientation);
 		
 	    super.onConfigurationChanged(newConfig);
 
-	    setWebViewOrientationScale();
+	    setWebViewOrientationScale(false);
 	}	
 	
     private void initializeUI() {
@@ -193,6 +194,8 @@ public class ShowImageActivity extends Activity {
     	
     	mWebView.getSettings().setSupportZoom(true);
     	mWebView.getSettings().setBuiltInZoomControls(true);
+//    	mWebView.getSettings().setLoadWithOverviewMode(true);
+//    	mWebView.getSettings().setUseWideViewPort(true);
     	
     	mWebView.setScrollbarFadingEnabled(true);
     	mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
@@ -214,10 +217,10 @@ public class ShowImageActivity extends Activity {
             }
         });        
 
-    	setWebViewOrientationScale();
+    	setWebViewOrientationScale(true);
     }
   
-    private void setWebViewOrientationScale() {
+    private void setWebViewOrientationScale(boolean reloadImage) {
     	Log.d(TAG, "Scale picture depend device orientation");
     	
     	if (mImageStore.fridayImage == null)
@@ -225,10 +228,22 @@ public class ShowImageActivity extends Activity {
     	
     	Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
     	
-    	int width = display.getWidth(); 
-        int height = display.getHeight(); 
-
-        Log.d(TAG, "Display view " + width + "x" + height);
+    	int displayWidth, displayHeight;
+    	
+    	if ( android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB_MR2 ) {
+        	Point size = new Point();
+        	display.getSize(size);
+        	
+        	displayWidth = size.x;
+        	displayHeight = size.y;
+    	}
+    	else {
+        	displayWidth = display.getWidth();  // deprecated
+        	displayHeight = display.getHeight();  // deprecated
+    	}
+    	
+    	
+        Log.d(TAG, "Display view " + displayWidth + "x" + displayHeight);
 
         int picWidth = mImageStore.fridayImage.width;
         int picHeight = mImageStore.fridayImage.height;
@@ -236,17 +251,26 @@ public class ShowImageActivity extends Activity {
         Log.d(TAG, "Picture dimensions " + picWidth + "x" + picHeight);
 
 // scale web view depend of rotate device        
-        Double val = 1d;
+        Float scale = 1f;
 
-		if (picHeight > height)
-			val = Double.valueOf(height) / Double.valueOf(picHeight);
+//		if (picHeight > displayHeight)
+			scale = Float.valueOf(displayHeight) / Float.valueOf(picHeight);
         
-    	val = val * 100d;
-    	Log.i(TAG, "Scale to " + val);
+		Float initialScale = scale * 100f;
+    	Log.i(TAG, "Scale to " + initialScale);
     
-    	mWebView.setInitialScale( val.intValue() );
-		mWebView.loadDataWithBaseURL("/", mImageStore.getHtml(), "text/html", "UTF-8", null);
-		mWebView.refreshDrawableState();
+    	mWebView.invalidate();
+    	mWebView.refreshDrawableState();
+        mWebView.clearCache(true);
+        
+//    	if ( reloadImage ) {
+        	mWebView.setInitialScale( initialScale.intValue() );
+    		mWebView.loadDataWithBaseURL("/", mImageStore.getHtml(), "text/html", "UTF-8", null);
+//    	}
+//    	else {
+//    		mWebView.setScaleX(scale);
+//    		mWebView.setScaleY(scale);
+//    	}
     }
 	
     @Override

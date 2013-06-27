@@ -32,6 +32,7 @@
                 android:text="@string/app_info_launcher" />
 
             <ImageView
+                android:contentDescription="@string/app_name"
                 android:id="@+id/imageLauncher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,21 +41,16 @@
     </LinearLayout>
 
     <FrameLayout
+        android:theme="@android:style/ButtonBar"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"
-        android:minHeight="54dip"
-        android:paddingLeft="2dip"
-        android:paddingRight="2dip"
-        android:paddingTop="4dip" >
+        android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/close_button"
+            android:id="@+id/about_close_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:minWidth="100dip"
-            android:onClick="closeInfo"
             android:text="@android:string/ok" />
         
     </FrameLayout>

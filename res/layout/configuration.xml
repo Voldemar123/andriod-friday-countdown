@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:orientation="vertical" >
 
     <ScrollView
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="0dip"
         android:layout_weight="1" >
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="10dip" >
@@ -18,7 +18,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dip"
+                android:layout_marginBottom="5dip"
                 android:text="@string/configuration_when_start_friday"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -66,6 +66,7 @@
                 android:id="@+id/widget_type_transparent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
                 android:text="@string/configuration_widget_type_transparent" />
 
         </LinearLayout>
@@ -74,21 +75,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"
-        android:minHeight="54dip"
-        android:orientation="horizontal"
-        android:paddingLeft="2dip"
-        android:paddingRight="2dip"
-        android:paddingTop="4dip" >
-
-        <Button
-            android:id="@+id/ok_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:minWidth="100dip"
-            android:onClick="saveExecution"
-            android:text="@android:string/ok" />
+        android:theme="@android:style/ButtonBar">
 
         <Button
             android:id="@+id/cancel_button"
@@ -96,8 +83,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:minWidth="100dip"
-            android:onClick="closeExecution"
             android:text="@android:string/cancel" />
-    </LinearLayout>
+        
+        <Button
+            android:id="@+id/ok_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="100dip"
+            android:text="@android:string/ok" />
+
+        </LinearLayout>
 
 </LinearLayout>
