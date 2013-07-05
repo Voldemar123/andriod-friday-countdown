@@ -287,8 +287,10 @@ public class ImageStore extends BaseStore {
 				bis.close();
 				fis.close();
 
-				fridayImage.width = img.getWidth();
-				fridayImage.height = img.getHeight();
+				if ( img != null ) {
+					fridayImage.width = img.getWidth();
+					fridayImage.height = img.getHeight();
+				}
 				
 	// only for DB stored images			
 				setPictureDimensions(fridayImage.width, fridayImage.height);
