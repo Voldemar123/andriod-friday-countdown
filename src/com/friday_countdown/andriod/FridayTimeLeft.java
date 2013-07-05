@@ -51,7 +51,7 @@ public class FridayTimeLeft {
 
 // time to start Friday		
 		if ( curDate.get(GregorianCalendar.DAY_OF_MONTH) == startFridayCal.get(GregorianCalendar.DAY_OF_MONTH) && 
-				curDate.get(GregorianCalendar.HOUR) == startFridayCal.get(GregorianCalendar.HOUR) &&
+				curDate.get(GregorianCalendar.HOUR_OF_DAY) == startFridayCal.get(GregorianCalendar.HOUR_OF_DAY) &&
 				curDate.get(GregorianCalendar.MINUTE) == startFridayCal.get(GregorianCalendar.MINUTE) )
 			isFridayStart = true;
 		
