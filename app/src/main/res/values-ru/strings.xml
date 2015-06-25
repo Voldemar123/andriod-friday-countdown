@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Пятничный отсчет</string>
     
-    <string name="configuration_when_start_friday">Когда у Вас начинается пятница ?</string>    
+    <string name="configuration_when_start_friday">Когда у Вас начинается пятница?</string>
     <string name="configuration_notify_me">Уведомлять меня</string>    
     
     <string name="configuration_widget_type">Цвет виджета</string>
