@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:configure="com.friday_countdown.andriod.CountdownConfiguration"
+    android:initialLayout="@layout/friday_countdown_widget"
+    android:minHeight="72dp"
+    android:minWidth="72dp"
+    android:updatePeriodMillis="86400000" >
+</appwidget-provider>

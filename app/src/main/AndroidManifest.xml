@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.friday_countdown.andriod"
+    android:versionCode="7"
+    android:versionName="1.5"
+    android:installLocation="internalOnly" >
+
+    <uses-sdk android:minSdkVersion="10" />
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+<!--         
+android:debuggable="true"
+ -->    
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:allowBackup="true">
+         
+		<activity android:name=".ShowImageActivity"
+		    android:configChanges="orientation"
+		    android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
+			android:label="@string/app_name">
+        </activity>
+         
+		<activity android:name=".ShowInfoActivity"
+			android:label="@string/app_name"
+			android:theme="@style/DialogTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+				
+        <activity
+            android:label="@string/app_name"
+            android:name=".CountdownConfiguration" 
+            android:theme="@style/DialogTheme">
+            <intent-filter >
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+      <receiver android:name="CountdownWidget" >
+          <intent-filter>
+              <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+          </intent-filter>    
+              <meta-data android:name="android.appwidget.provider"              
+              android:resource="@xml/friday_countdown_widget_info" />
+      </receiver>
+
+	<service android:name=".CountdownService"></service>
+    	    
+    </application>
+    
+
+</manifest>

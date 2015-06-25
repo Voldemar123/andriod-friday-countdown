@@ -2,77 +2,80 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="167a771d-2e51-4890-a679-0812ef47419a" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\.classpath" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\.project" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\.settings\org.eclipse.core.resources.prefs" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\build.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\lint.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\proguard.cfg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\project.properties" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_bg.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_bg_focused.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_bg_pressed.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_dark_bg.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_dark_bg_focused.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_dark_bg_pressed.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_dark_transparent_bg.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_dark_transparent_bg_focused.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_dark_transparent_bg_pressed.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_transparent_bg.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_transparent_bg_focused.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_transparent_bg_pressed.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-ldpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_bg.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_bg_focused.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_bg_pressed.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_dark_bg.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_dark_bg_focused.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_dark_bg_pressed.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_dark_transparent_bg.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_dark_transparent_bg_focused.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_dark_transparent_bg_pressed.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_transparent_bg.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_transparent_bg_focused.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_transparent_bg_pressed.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable\appwidget_bg_clickable.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable\appwidget_dark_bg_clickable.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable\appwidget_dark_transparent_bg_clickable.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable\appwidget_transparent_bg_clickable.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable\f0001.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\layout\configuration.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\layout\friday_countdown_widget.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\layout\show_image.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\layout\show_info.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\values-ru\strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\values-v11\styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\values\dimens.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\values\strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\values\styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\xml\friday_countdown_widget_info.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\BaseStore.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\Constants.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\CountdownConfiguration.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\CountdownDatabaseHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\CountdownService.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\CountdownWidget.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\FridayImage.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\FridayTimeLeft.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\ImageStore.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\LocalizedException.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\ShakeEventListener.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\ShowImageActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\ShowInfoActivity.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/appwidget_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/appwidget_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/appwidget_bg_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/appwidget_bg_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/appwidget_bg_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/appwidget_bg_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/appwidget_dark_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/appwidget_dark_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/appwidget_dark_bg_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/appwidget_dark_bg_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/appwidget_dark_bg_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/appwidget_dark_bg_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/appwidget_dark_transparent_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/appwidget_dark_transparent_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/appwidget_dark_transparent_bg_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/appwidget_dark_transparent_bg_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/appwidget_dark_transparent_bg_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/appwidget_dark_transparent_bg_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/appwidget_transparent_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/appwidget_transparent_bg.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/appwidget_transparent_bg_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/appwidget_transparent_bg_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/appwidget_transparent_bg_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/appwidget_transparent_bg_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/f0001.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_launcher.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_launcher.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_launcher.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/BaseStore.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/Constants.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/CountdownConfiguration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/CountdownDatabaseHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/CountdownService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/CountdownWidget.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/FridayImage.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/FridayTimeLeft.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/ImageStore.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/LocalizedException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/ShakeEventListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/ShowImageActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/ShowInfoActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/andriod-friday-countdown.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/appwidget_bg_clickable.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/appwidget_dark_bg_clickable.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/appwidget_dark_transparent_bg_clickable.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/appwidget_transparent_bg_clickable.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/configuration.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/friday_countdown_widget.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/xml/friday_countdown_widget_info.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradlew.bat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradlew" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/import-summary.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/lint.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/show_image.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/show_info.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values-v11/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="andriod-friday-countdown.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
+    <ignored path="build/" />
+    <ignored path=".gradle/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -1801,6 +1804,13 @@
       <option name="number" value="Default" />
       <updated>1435230516967</updated>
     </task>
+    <task id="LOCAL-00001" summary="move to Android Studio">
+      <created>1435239340226</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1435239340226</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1845,6 +1855,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="move to Android Studio" />
+    <option name="LAST_COMMIT_MESSAGE" value="move to Android Studio" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

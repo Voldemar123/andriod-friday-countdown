@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:focusable="true"
+    android:clickable="true"
+    android:id="@+id/countdown_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/widget_margin">
+
+    <TextView
+        android:id="@+id/title"
+        android:textSize="12sp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/friday_time_left" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/time_left"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/title_has_come"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/friday_has_come" >
+    </TextView>
+    
+</LinearLayout>
