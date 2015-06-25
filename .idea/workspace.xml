@@ -1,7 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="167a771d-2e51-4890-a679-0812ef47419a" name="Default" comment="" />
+    <list default="true" id="167a771d-2e51-4890-a679-0812ef47419a" name="Default" comment="">
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\.classpath" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\.project" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\.settings\org.eclipse.core.resources.prefs" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\AndroidManifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\build.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\lint.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\proguard.cfg" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\project.properties" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_bg.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_bg_focused.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_bg_pressed.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_dark_bg.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_dark_bg_focused.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_dark_bg_pressed.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_dark_transparent_bg.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_dark_transparent_bg_focused.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_dark_transparent_bg_pressed.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_transparent_bg.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_transparent_bg_focused.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\appwidget_transparent_bg_pressed.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-hdpi\ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-ldpi\ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_bg.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_bg_focused.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_bg_pressed.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_dark_bg.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_dark_bg_focused.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_dark_bg_pressed.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_dark_transparent_bg.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_dark_transparent_bg_focused.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_dark_transparent_bg_pressed.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_transparent_bg.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_transparent_bg_focused.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\appwidget_transparent_bg_pressed.9.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable-mdpi\ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable\appwidget_bg_clickable.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable\appwidget_dark_bg_clickable.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable\appwidget_dark_transparent_bg_clickable.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable\appwidget_transparent_bg_clickable.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\drawable\f0001.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\layout\configuration.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\layout\friday_countdown_widget.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\layout\show_image.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\layout\show_info.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\values-ru\strings.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\values-v11\styles.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\values\dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\values\strings.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\values\styles.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\res\xml\friday_countdown_widget_info.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\BaseStore.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\Constants.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\CountdownConfiguration.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\CountdownDatabaseHelper.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\CountdownService.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\CountdownWidget.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\FridayImage.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\FridayTimeLeft.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\ImageStore.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\LocalizedException.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\ShakeEventListener.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\ShowImageActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\andriod-friday-countdown\src\com\friday_countdown\andriod\ShowInfoActivity.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="andriod-friday-countdown.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -139,14 +207,19 @@
       <file leaf-file-name="CountdownDatabaseHelper.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/CountdownDatabaseHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.8952702">
-              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.11486486">
+              <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="availableProjects">
@@ -1408,6 +1481,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/Constants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/CountdownDatabaseHelper.java" />
       </list>
     </option>
   </component>
@@ -1429,7 +1503,7 @@
     <option name="width" value="1704" />
     <option name="height" value="1080" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -1452,10 +1526,10 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1473,28 +1547,6 @@
               <option name="myItemId" value="andriod-friday-countdown" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="andriod-friday-countdown" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="andriod" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -1509,6 +1561,7 @@
     <property name="FullScreen" value="false" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Gradle.andriod-friday-countdown:app [clean]">
     <configuration default="false" name="andriod-friday-countdown [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -1757,27 +1810,27 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985073" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296837" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3008658" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17031631" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14963503" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2037713" sideWeight="0.5129032" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296837" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2037713" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2037713" sideWeight="0.4870968" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1798,6 +1851,44 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/import-summary.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/BaseStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/CountdownDatabaseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/import-summary.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1886,18 +1977,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34860557">
           <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-          <folding>
-            <element signature="e#720#721#0" expanded="true" />
-            <element signature="e#771#772#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/friday_countdown/andriod/CountdownDatabaseHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8952702">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.11486486">
+          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
