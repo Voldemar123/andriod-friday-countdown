@@ -85,7 +85,7 @@ public class ImageStore extends BaseStore {
 	    		null, null, null, null);
 	    
 	    cursor.moveToFirst();
-        while (cursor.isAfterLast() == false) {
+        while (!cursor.isAfterLast()) {
         	imageNames.add( cursor.getString(0) );
             cursor.moveToNext();
         }
@@ -110,7 +110,7 @@ public class ImageStore extends BaseStore {
 	    		null, null, null, null, null);
 	    
 	    cursor.moveToFirst();
-        while (cursor.isAfterLast() == false) {
+        while (!cursor.isAfterLast()) {
         	FridayImage image = new FridayImage();
         	
         	image.id = cursor.getInt(0);
@@ -164,8 +164,7 @@ public class ImageStore extends BaseStore {
 	        OutputStream output = new FileOutputStream(file);
 			
 	        byte data[] = new byte[1024];
-	        int count = 0;
-	        
+	        int count;
 	        while (( count = input.read(data) ) != -1)
 	            output.write( data, 0, count );
 
@@ -265,7 +264,7 @@ public class ImageStore extends BaseStore {
 		
 // get image file path from resources 
 		fridayImage.path = "file:///" + Constants.APP_RESOURCE_PATH + 
-				res.getString( Constants.DEFAULT_IMAGE );
+				res.getString(Constants.DEFAULT_IMAGE);
 
 		fridayImage.width = img.getWidth();
 		fridayImage.height = img.getHeight();
